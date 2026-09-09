@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+            <html data-bs-theme="legacy">
+                <head>
+                    <meta charset="utf-8"/>
+                    <title>Logger: odoo.addons.base.models.ir_qweb
+Func: &lt;lambda&gt;</title>
+
+                    <link type="text/css" rel="stylesheet" href="/web/assets/1/54435b1/runbot.assets_frontend.min.css"/>
+                    <script type="text/javascript" defer="defer" src="/web/assets/1/873b2fa/runbot.assets_frontend.min.js" onerror="__odooAssetError=1"></script>
+
+
+                        <link rel="icon" type="image/png" href="/runbot/static/src/img/icon_ok.png"/>
+                        <link rel="icon" type="image/svg+xml" href="/runbot/static/src/img/icon_ok.svg"/>
+                </head>
+                <body>
+                    <header>
+                        <nav class="navbar navbar-expand-md bg-body-tertiary">
+                            <a href="/runbot/rd-1">
+                                <b class="active_project">
+                                    R&amp;D
+                                </b>
+                            </a>
+                            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#top_menu_collapse">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="top_menu_collapse">
+                                <ul class="nav navbar-nav ms-auto text-end" id="top_menu">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="/runbot/rd-1">
+                                                    R&amp;D
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="/runbot/industry-9">
+                                                    Industry
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="/runbot/tutorials-12">
+                                                    Tutorials
+                                                </a>
+                                            </li>
+                                    <li class="nav-item">
+                                        <button command="show-modal" commandfor="collapsePreference" type="button" class="nav-link">
+                                            <i class="fa fa-gear"></i>
+                                        </button>
+                                    </li>
+                                        <li class="nav-item dropdown">
+                                            <b>
+                                                <a class="nav-link" href="/web/login?redirect=/runbot/build/124585551">Login</a>
+                                            </b>
+                                        </li>
+                                </ul>
+                                
+          <form>
+            <div class="btn-group">
+            <div class="float-end">
+                <div class="btn-group ">
+                    <a class="btn btn-default" title="Build details" aria-label="Build details" href="/runbot/build/124585551">
+                        <i class="fa fa-file-text-o"></i>
+                    </a>
+                    
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124585551" data-global_result="ok" data-global_state="done" data-local_state="done" data-databases="[&#34;all&#34;]" data-domain="124585551-master.runbot297.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124585551-master" data-config_id="438" data-trigger_id="3" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[&#34;install_all&#34;]" data-host="runbot297.odoo.com" data-commit_link_ids="17257789,17257838">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+                </div>
+            </div>
+            </div>
+          </form>
+        
+                            </div>
+                        </nav>
+                    </header>
+                    <dialog id="collapsePreference" class="modal modal-xl">
+                        <div class="modal-dialog">
+                            <form class="modal-content" method="post" action="/runbot/submit" id="preferences_form">
+                                <header class="modal-header">
+                                    <h5 class="modal-title">Preferences</h5>
+                                    <button type="button" class="btn-close" command="close" commandfor="collapsePreference"></button>
+                                </header>
+                                <div class="modal-body">
+                                    <input type="hidden" name="redirect" value="/runbot/build/124585551?"/>
+                                    <div>
+                                        <div class="form-check form-switch">
+                                        <label for="more" class="form-check-label">More info</label>
+                                        <input onclick="document.getElementById(&#39;preferences_form&#39;).submit()" class="form-check-input" type="checkbox" role="switch" id="more" name="more"/>
+                                    </div></div>
+                                    <div>
+                                        <label for="theme_selection" style="min-width: 80px">Theme:</label>
+                                        <div id="theme_selection" class="text-nowrap btn-group btn-group-sm" role="group">
+                                        <button onclick="document.cookie = &#39;theme=legacy; expires=Thu, 1 Dec 2942 12:00:00 UTC; path=/&#39;; location.reload();" type="button" class="btn btn-primary">Legacy</button>
+                                        <button onclick="document.cookie = &#39;theme=dark; expires=Thu, 1 Dec 2942 12:00:00 UTC; path=/&#39;; location.reload();" type="button" class="btn btn-secondary">Dark</button>
+                                        <button onclick="document.cookie = &#39;theme=light; expires=Thu, 1 Dec 2942 12:00:00 UTC; path=/&#39;; location.reload();" type="button" class="btn btn-secondary">Light</button>
+                                        <button onclick="document.cookie = &#39;theme=red404; expires=Thu, 1 Dec 2942 12:00:00 UTC; path=/&#39;; location.reload();" type="button" class="btn btn-secondary">Red404</button>
+                                    </div></div>
+                                    <div>
+                                        <label for="theme_selection" style="min-width: 80px">Sticky:</label>
+                                        <div class="text-nowrap btn-group btn-group-sm" role="group">
+                                        <button onclick="document.cookie = &#39;filter_mode=default; expires=Thu, 1 Dec 2942 12:00:00 UTC; path=/&#39;; location.reload();" type="button" help="Only display sticky except if searching" class="btn btn-primary">Default</button>
+                                        <button onclick="document.cookie = &#39;filter_mode=all; expires=Thu, 1 Dec 2942 12:00:00 UTC; path=/&#39;; location.reload();" type="button" class="btn btn-secondary">All</button>
+                                        <button onclick="document.cookie = &#39;filter_mode=sticky; expires=Thu, 1 Dec 2942 12:00:00 UTC; path=/&#39;; location.reload();" type="button" class="btn btn-secondary">Sticky only</button>
+                                        <button onclick="document.cookie = &#39;filter_mode=nosticky; expires=Thu, 1 Dec 2942 12:00:00 UTC; path=/&#39;; location.reload();" type="button" class="btn btn-secondary">Dev only</button>
+                                    </div></div>
+                                    <div>
+                                        <label for="theme_selection" style="min-width: 80px">Category:</label>
+                                        <div class="text-nowrap btn-group btn-group-sm" role="group">
+                                    </div></div>
+
+                                    <hr class="separator"/>
+                                </div>
+                                <footer class="modal-footer">
+                                    <button onclick="Array.from(document.getElementsByClassName(&#39;trigger_selection_show&#39;)).forEach((element) =&gt; element.checked = true); Array.from(document.getElementsByClassName(&#39;trigger_selection_hide&#39;)).forEach((element) =&gt; element.checked = false); event.preventDefault();" class="btn btn-secondary">Reset to default</button>
+                                    <button onclick="Array.from(document.getElementsByClassName(&#39;trigger_selection&#39;)).forEach((element) =&gt; element.checked = true); event.preventDefault();" class="btn btn-secondary">All</button>
+                                    <button onclick="Array.from(document.getElementsByClassName(&#39;trigger_selection&#39;)).forEach((element) =&gt; element.checked = false); event.preventDefault();" class="btn btn-secondary">None</button>
+                                    <button type="submit" class="btn btn-primary">Save</button>
+                                </footer>
+                            </form>
+                        </div>
+                    </dialog>
+            <template id="build-options-dropdown-menu">
+                <ul class="dropdown-menu dropdown-menu-end" role="menu">
+                    <li t-if="local_state==&#39;running&#39;" t-foreach="databases" t-as="db_suffix">
+                        <a class="dropdown-item" href="/runbot/run/{{id}}/{{db_suffix}}">
+                            <i class="fa fa-fw fa-sign-in"></i> Connect {{db_suffix}}
+                        </a>
+                    </li>
+                    <li t-if="local_state==&#39;running&#39;">
+                        <a class="dropdown-item" href="http://{{domain}}/web/database/selector">
+                            <i class="fa fa-fw fa-sign-in"></i> Database selector
+                        </a>
+                    </li>
+                    <li t-if="host and log_list"><hr class="dropdown-divider"/></li>
+                    <li t-if="host" t-foreach="log_list" t-as="log_name">
+                        <a class="dropdown-item" href="http://{{host}}/runbot/static/build/{{dest}}/logs/{{log_name}}.txt">
+                            <i class="fa fa-fw fa-file-text-o"></i> Full {{log_name}} logs
+                        </a>
+                    </li>
+   <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="http://mail.{{host}}" target="new">
+        <i class="fa fa-envelope"></i>
+        Mailhog
+    </a>
+                </ul>
+            </template>
+                    
+        <div class="row g-0">
+          <div class="col-md-12">
+
+
+            
+            <nav aria-label="breadcrumb" class="d-flex justify-content-between align-items-center">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a class="btn btn-link" href="/runbot/1">
+                    R&amp;D
+                  </a>
+                </li>
+                <li class="breadcrumb-item dropdown">
+                  <a class="btn btn-link" href="/runbot/bundle/508663">
+                    master-oi-custom-backend-jula
+                  </a>
+                </li>
+                <li class="breadcrumb-item">
+                  <a class="btn btn-link" href="/runbot/batch/2754387">
+                    batch-2754387
+                     (Enterprise Tests)
+                  </a>
+                </li>
+                <li class="breadcrumb-item active">
+                  <a class="btn btn-link" href="/runbot/batch/2754387/build/124585551">
+                    Parallel testing (light)
+                  </a>
+                </li>
+              </ol>
+              <span class="btn-group pe-3">
+                <a role="button" title="Previous ko " class="disabled btn btn-default fa fa-angle-double-left"></a>
+                <a role="button" title="Previous " class="disabled btn btn-default fa fa-chevron-left"></a>
+                <button type="button" class="btn btn-default fa fa-compress" data-toggle="hide-success" title="Toggle successful rows" aria-label="Toggle successful rows" aria-expanded="true"></button>
+                <a role="button" title="Next " class="disabled btn btn-default fa fa-chevron-right"></a>
+                <a role="button" title="Next ko " class="disabled btn btn-default fa fa-angle-double-right"></a>
+              </span>
+            </nav>
+          </div>
+          
+          <div class="bg-success-subtle col-md-6">
+            <div class="build_details text-truncate">
+              
+              
+
+
+              
+                <b>Commit:</b>
+                <a href="/runbot/commit/2913963">
+                  odoo:f29ecf96
+                </a>
+                &nbsp;
+                <a title="View Commit on Github" href="https://github.com/odoo/odoo/commit/f29ecf9617e30bdde7f5a970547ebd4e27e69b4b"><i class="fa fa-github"></i></a>
+                <div class="ms-3">
+                  <b>Subject:</b>
+                  [IMP] web, html_editor, mail: use ligature for `odoo_ui_icons`
+                  <br/>
+                  <b>Author:</b>
+                  Julien Launois (jula)
+                  <br/>
+                </div>
+                <b>Commit:</b>
+                <a href="/runbot/commit/2911809">
+                  enterprise:cc35fcee
+                </a>
+                &nbsp;
+                <a title="View Commit on Github" href="https://github.com/odoo/enterprise/commit/cc35fceea203f230cc9ede08a4cd3ad7515119c9"><i class="fa fa-github"></i></a>
+                <div class="ms-3">
+                  <b>Subject:</b>
+                  [FIX] ai_website: adapt to the moved icon index
+                  <br/>
+                  <b>Author:</b>
+                  Julien Launois (jula)
+                  <br/>
+                </div>
+                <b>Mode:</b> <span class="badge btn btn-info">Light</span> <a href="/runbot/bundle/508663">Configure</a><br/>
+              <div>
+                <b title="Execution time of this build, without child time">
+                  Build time:
+                </b>
+                16m
+              </div>
+              <div>
+                <b title="Time from creation to finish (queue time + completion time)">
+                  Wait time:
+                </b>
+                70m
+              </div>
+              <div>
+                <b title="Total time ">
+                  Load time:
+                </b>
+                6h6m
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            Children:
+            <table class="table table-sm">
+                <tr class="bg-success-subtle">
+                  <td class="text-truncate" style="max-width: 0; width: 100%;">
+                    <a href="/runbot/build/124586025">
+                      Build
+                      124586025
+                    </a>
+                      Test at install
+                  </td>
+                  <td>
+                    <span class="badge text-bg-info">35m</span>
+                  </td>
+                  <td>
+            <div class="float-end">
+                <div class="btn-group btn-group-ssm">
+                    <a class="btn btn-default" title="Build details" aria-label="Build details" href="/runbot/build/124586025">
+                        <i class="fa fa-file-text-o"></i>
+                    </a>
+                    
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124586025" data-global_result="ok" data-global_state="done" data-local_state="done" data-databases="[&#34;all&#34;]" data-domain="124586025-master.runbot139.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124586025-master" data-config_id="438" data-trigger_id="3" data-version_id="1" data-bundle_id="508663" data-description="Test at install" data-log_list="[&#34;start_at_install&#34;]" data-host="runbot139.odoo.com" data-commit_link_ids="17257789,17257838">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+                </div>
+            </div>
+
+                  </td>
+                </tr>
+                <tr class="bg-success-subtle">
+                  <td class="text-truncate" style="max-width: 0; width: 100%;">
+                    <a href="/runbot/build/124586026">
+                      Build
+                      124586026
+                    </a>
+                      Test pylint
+                  </td>
+                  <td>
+                    <span class="badge text-bg-info">15m</span>
+                  </td>
+                  <td>
+            <div class="float-end">
+                <div class="btn-group btn-group-ssm">
+                    <a class="btn btn-default" title="Build details" aria-label="Build details" href="/runbot/build/124586026">
+                        <i class="fa fa-file-text-o"></i>
+                    </a>
+                    
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124586026" data-global_result="ok" data-global_state="done" data-local_state="done" data-databases="[&#34;all&#34;]" data-domain="124586026-master.runbot124.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124586026-master" data-config_id="438" data-trigger_id="3" data-version_id="1" data-bundle_id="508663" data-description="Test pylint" data-log_list="[&#34;start_test_lint&#34;]" data-host="runbot124.odoo.com" data-commit_link_ids="17257789,17257838">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+                </div>
+            </div>
+
+                  </td>
+                </tr>
+                <tr class="bg-success-subtle">
+                  <td class="text-truncate" style="max-width: 0; width: 100%;">
+                    <a href="/runbot/build/124587507">
+                      Build
+                      124587507
+                    </a>
+                      Post install tests for <strong>account_followup,ai,ai_auto_install,ai_html_builder,ai_website,ai_website_livechat,analytic,api_doc,approvals,attachment_indexation,auth_oauth,auth_passkey,auth_password_policy,auth_signup</strong>
+                  </td>
+                  <td>
+                    <span class="badge text-bg-info">13m</span>
+                  </td>
+                  <td>
+            <div class="float-end">
+                <div class="btn-group btn-group-ssm">
+                    <a class="btn btn-default" title="Build details" aria-label="Build details" href="/runbot/build/124587507">
+                        <i class="fa fa-file-text-o"></i>
+                    </a>
+                    
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124587507" data-global_result="ok" data-global_state="done" data-local_state="done" data-databases="[&#34;all&#34;]" data-domain="124587507-master.runbot288.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124587507-master" data-config_id="438" data-trigger_id="3" data-version_id="1" data-bundle_id="508663" data-description="Post install tests for **account_followup,ai,ai_auto_install,ai_html_builder,ai_website,ai_website_livechat,analytic,api_doc,approvals,attachment_indexation,auth_oauth,auth_passkey,auth_password_policy,auth_signup**" data-log_list="[&#34;restore&#34;, &#34;start_post_install_tests&#34;]" data-host="runbot288.odoo.com" data-commit_link_ids="17257789,17257838">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+                </div>
+            </div>
+
+                  </td>
+                </tr>
+                <tr class="bg-success-subtle">
+                  <td class="text-truncate" style="max-width: 0; width: 100%;">
+                    <a href="/runbot/build/124587508">
+                      Build
+                      124587508
+                    </a>
+                      Post install tests for <strong>auth_totp,auth_totp_mail,barcodes,base,base_automation,base_import,base_import_module,base_install_request,base_setup,bus,calendar,cloud_storage,contacts,crm,data_cleaning,data_recycle,delivery_bpost,delivery_dhl,delivery_dhl_rest,delivery_easypost,delivery_fedex,delivery_fedex_rest,delivery_sendcloud,delivery_shiprocket,delivery_ups,delivery_ups_rest,delivery_usps,delivery_usps_rest,digest,event,fleet,gamification,google_address_autocomplete,google_gmail,helpdesk,hr_attendance_zkteco,hr_payroll</strong>
+                  </td>
+                  <td>
+                    <span class="badge text-bg-info">20m</span>
+                  </td>
+                  <td>
+            <div class="float-end">
+                <div class="btn-group btn-group-ssm">
+                    <a class="btn btn-default" title="Build details" aria-label="Build details" href="/runbot/build/124587508">
+                        <i class="fa fa-file-text-o"></i>
+                    </a>
+                    
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124587508" data-global_result="ok" data-global_state="done" data-local_state="done" data-databases="[&#34;all&#34;]" data-domain="124587508-master.runbot271.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124587508-master" data-config_id="438" data-trigger_id="3" data-version_id="1" data-bundle_id="508663" data-description="Post install tests for **auth_totp,auth_totp_mail,barcodes,base,base_automation,base_import,base_import_module,base_install_request,base_setup,bus,calendar,cloud_storage,contacts,crm,data_cleaning,data_recycle,delivery_bpost,delivery_dhl,delivery_dhl_rest,delivery_easypost,delivery_fedex,delivery_fedex_rest,delivery_sendcloud,delivery_shiprocket,delivery_ups,delivery_ups_rest,delivery_usps,delivery_usps_rest,digest,event,fleet,gamification,google_address_autocomplete,google_gmail,helpdesk,hr_attendance_zkteco,hr_payroll**" data-log_list="[&#34;restore&#34;, &#34;start_post_install_tests&#34;]" data-host="runbot271.odoo.com" data-commit_link_ids="17257789,17257838">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+                </div>
+            </div>
+
+                  </td>
+                </tr>
+                <tr class="bg-success-subtle">
+                  <td class="text-truncate" style="max-width: 0; width: 100%;">
+                    <a href="/runbot/build/124587511">
+                      Build
+                      124587511
+                    </a>
+                      Post install tests for <strong>html_builder,html_editor,http_routing,iap,iap_extract,iap_mail,im_livechat,iot,iot_webserial,knowledge,link_tracker,lunch</strong>
+                  </td>
+                  <td>
+                    <span class="badge text-bg-info">36m</span>
+                  </td>
+                  <td>
+            <div class="float-end">
+                <div class="btn-group btn-group-ssm">
+                    <a class="btn btn-default" title="Build details" aria-label="Build details" href="/runbot/build/124587511">
+                        <i class="fa fa-file-text-o"></i>
+                    </a>
+                    
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124587511" data-global_result="ok" data-global_state="done" data-local_state="done" data-databases="[&#34;all&#34;]" data-domain="124587511-master.runbot263.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124587511-master" data-config_id="438" data-trigger_id="3" data-version_id="1" data-bundle_id="508663" data-description="Post install tests for **html_builder,html_editor,http_routing,iap,iap_extract,iap_mail,im_livechat,iot,iot_webserial,knowledge,link_tracker,lunch**" data-log_list="[&#34;restore&#34;, &#34;start_post_install_tests&#34;]" data-host="runbot263.odoo.com" data-commit_link_ids="17257789,17257838">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+                </div>
+            </div>
+
+                  </td>
+                </tr>
+                <tr class="bg-success-subtle">
+                  <td class="text-truncate" style="max-width: 0; width: 100%;">
+                    <a href="/runbot/build/124587512">
+                      Build
+                      124587512
+                    </a>
+                      Post install tests for <strong>mail,mail_bot,mail_enterprise,mail_group,mail_plugin,mail_tracking,maintenance,mass_mailing,microsoft_outlook,mysubscription,obox,onboarding</strong>
+                  </td>
+                  <td>
+                    <span class="badge text-bg-info">31m</span>
+                  </td>
+                  <td>
+            <div class="float-end">
+                <div class="btn-group btn-group-ssm">
+                    <a class="btn btn-default" title="Build details" aria-label="Build details" href="/runbot/build/124587512">
+                        <i class="fa fa-file-text-o"></i>
+                    </a>
+                    
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124587512" data-global_result="ok" data-global_state="done" data-local_state="done" data-databases="[&#34;all&#34;]" data-domain="124587512-master.runbot290.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124587512-master" data-config_id="438" data-trigger_id="3" data-version_id="1" data-bundle_id="508663" data-description="Post install tests for **mail,mail_bot,mail_enterprise,mail_group,mail_plugin,mail_tracking,maintenance,mass_mailing,microsoft_outlook,mysubscription,obox,onboarding**" data-log_list="[&#34;restore&#34;, &#34;start_post_install_tests&#34;]" data-host="runbot290.odoo.com" data-commit_link_ids="17257789,17257838">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+                </div>
+            </div>
+
+                  </td>
+                </tr>
+                <tr class="bg-success-subtle">
+                  <td class="text-truncate" style="max-width: 0; width: 100%;">
+                    <a href="/runbot/build/124587513">
+                      Build
+                      124587513
+                    </a>
+                      Post install tests for <strong>phone_validation,point_of_sale,portal,portal_discuss</strong>
+                  </td>
+                  <td>
+                    <span class="badge text-bg-info">35m</span>
+                  </td>
+                  <td>
+            <div class="float-end">
+                <div class="btn-group btn-group-ssm">
+                    <a class="btn btn-default" title="Build details" aria-label="Build details" href="/runbot/build/124587513">
+                        <i class="fa fa-file-text-o"></i>
+                    </a>
+                    
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124587513" data-global_result="ok" data-global_state="done" data-local_state="done" data-databases="[&#34;all&#34;]" data-domain="124587513-master.runbot294.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124587513-master" data-config_id="438" data-trigger_id="3" data-version_id="1" data-bundle_id="508663" data-description="Post install tests for **phone_validation,point_of_sale,portal,portal_discuss**" data-log_list="[&#34;restore&#34;, &#34;start_post_install_tests&#34;]" data-host="runbot294.odoo.com" data-commit_link_ids="17257789,17257838">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+                </div>
+            </div>
+
+                  </td>
+                </tr>
+                <tr class="bg-success-subtle">
+                  <td class="text-truncate" style="max-width: 0; width: 100%;">
+                    <a href="/runbot/build/124587514">
+                      Build
+                      124587514
+                    </a>
+                      Post install tests for <strong>privacy_lookup,product,project,rating,resource,resource_mail,room</strong>
+                  </td>
+                  <td>
+                    <span class="badge text-bg-info">9m</span>
+                  </td>
+                  <td>
+            <div class="float-end">
+                <div class="btn-group btn-group-ssm">
+                    <a class="btn btn-default" title="Build details" aria-label="Build details" href="/runbot/build/124587514">
+                        <i class="fa fa-file-text-o"></i>
+                    </a>
+                    
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124587514" data-global_result="ok" data-global_state="done" data-local_state="done" data-databases="[&#34;all&#34;]" data-domain="124587514-master.runbot297.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124587514-master" data-config_id="438" data-trigger_id="3" data-version_id="1" data-bundle_id="508663" data-description="Post install tests for **privacy_lookup,product,project,rating,resource,resource_mail,room**" data-log_list="[&#34;restore&#34;, &#34;start_post_install_tests&#34;]" data-host="runbot297.odoo.com" data-commit_link_ids="17257789,17257838">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+                </div>
+            </div>
+
+                  </td>
+                </tr>
+                <tr class="bg-success-subtle">
+                  <td class="text-truncate" style="max-width: 0; width: 100%;">
+                    <a href="/runbot/build/124587515">
+                      Build
+                      124587515
+                    </a>
+                      Post install tests for <strong>sales_team,sign,sms,snailmail,social,spreadsheet,spreadsheet_edition</strong>
+                  </td>
+                  <td>
+                    <span class="badge text-bg-info">8m</span>
+                  </td>
+                  <td>
+            <div class="float-end">
+                <div class="btn-group btn-group-ssm">
+                    <a class="btn btn-default" title="Build details" aria-label="Build details" href="/runbot/build/124587515">
+                        <i class="fa fa-file-text-o"></i>
+                    </a>
+                    
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124587515" data-global_result="ok" data-global_state="done" data-local_state="done" data-databases="[&#34;all&#34;]" data-domain="124587515-master.runbot312.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124587515-master" data-config_id="438" data-trigger_id="3" data-version_id="1" data-bundle_id="508663" data-description="Post install tests for **sales_team,sign,sms,snailmail,social,spreadsheet,spreadsheet_edition**" data-log_list="[&#34;restore&#34;, &#34;start_post_install_tests&#34;]" data-host="runbot312.odoo.com" data-commit_link_ids="17257789,17257838">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+                </div>
+            </div>
+
+                  </td>
+                </tr>
+                <tr class="bg-success-subtle">
+                  <td class="text-truncate" style="max-width: 0; width: 100%;">
+                    <a href="/runbot/build/124587516">
+                      Build
+                      124587516
+                    </a>
+                      Post install tests for <strong>survey,test_discuss_full,test_html_field_history,test_http,test_import_export,test_mail,test_mail_enterprise,test_mail_full,test_mail_sms</strong>
+                  </td>
+                  <td>
+                    <span class="badge text-bg-info">32m</span>
+                  </td>
+                  <td>
+            <div class="float-end">
+                <div class="btn-group btn-group-ssm">
+                    <a class="btn btn-default" title="Build details" aria-label="Build details" href="/runbot/build/124587516">
+                        <i class="fa fa-file-text-o"></i>
+                    </a>
+                    
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124587516" data-global_result="ok" data-global_state="done" data-local_state="done" data-databases="[&#34;all&#34;]" data-domain="124587516-master.runbot314.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124587516-master" data-config_id="438" data-trigger_id="3" data-version_id="1" data-bundle_id="508663" data-description="Post install tests for **survey,test_discuss_full,test_html_field_history,test_http,test_import_export,test_mail,test_mail_enterprise,test_mail_full,test_mail_sms**" data-log_list="[&#34;restore&#34;, &#34;start_post_install_tests&#34;]" data-host="runbot314.odoo.com" data-commit_link_ids="17257789,17257838">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+                </div>
+            </div>
+
+                  </td>
+                </tr>
+                <tr class="bg-success-subtle">
+                  <td class="text-truncate" style="max-width: 0; width: 100%;">
+                    <a href="/runbot/build/124587517">
+                      Build
+                      124587517
+                    </a>
+                      Post install tests for <strong>test_tests,test_translation_mode,test_web,test_whatsapp,timer,utm,voip</strong>
+                  </td>
+                  <td>
+                    <span class="badge text-bg-info">13m</span>
+                  </td>
+                  <td>
+            <div class="float-end">
+                <div class="btn-group btn-group-ssm">
+                    <a class="btn btn-default" title="Build details" aria-label="Build details" href="/runbot/build/124587517">
+                        <i class="fa fa-file-text-o"></i>
+                    </a>
+                    
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124587517" data-global_result="ok" data-global_state="done" data-local_state="done" data-databases="[&#34;all&#34;]" data-domain="124587517-master.runbot255.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124587517-master" data-config_id="438" data-trigger_id="3" data-version_id="1" data-bundle_id="508663" data-description="Post install tests for **test_tests,test_translation_mode,test_web,test_whatsapp,timer,utm,voip**" data-log_list="[&#34;restore&#34;, &#34;start_post_install_tests&#34;]" data-host="runbot255.odoo.com" data-commit_link_ids="17257789,17257838">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+                </div>
+            </div>
+
+                  </td>
+                </tr>
+                <tr class="bg-success-subtle">
+                  <td class="text-truncate" style="max-width: 0; width: 100%;">
+                    <a href="/runbot/build/124587518">
+                      Build
+                      124587518
+                    </a>
+                      Post install tests for <strong>web</strong>
+                  </td>
+                  <td>
+                    <span class="badge text-bg-info">27m</span>
+                  </td>
+                  <td>
+            <div class="float-end">
+                <div class="btn-group btn-group-ssm">
+                    <a class="btn btn-default" title="Build details" aria-label="Build details" href="/runbot/build/124587518">
+                        <i class="fa fa-file-text-o"></i>
+                    </a>
+                    
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124587518" data-global_result="ok" data-global_state="done" data-local_state="done" data-databases="[&#34;all&#34;]" data-domain="124587518-master.runbot320.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124587518-master" data-config_id="438" data-trigger_id="3" data-version_id="1" data-bundle_id="508663" data-description="Post install tests for **web**" data-log_list="[&#34;restore&#34;, &#34;start_post_install_tests&#34;]" data-host="runbot320.odoo.com" data-commit_link_ids="17257789,17257838">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+                </div>
+            </div>
+
+                  </td>
+                </tr>
+                <tr class="bg-success-subtle">
+                  <td class="text-truncate" style="max-width: 0; width: 100%;">
+                    <a href="/runbot/build/124587519">
+                      Build
+                      124587519
+                    </a>
+                      Post install tests for <strong>web_cohort,web_enterprise,web_gantt,web_grid,web_hierarchy,web_studio,web_tour,web_unsplash</strong>
+                  </td>
+                  <td>
+                    <span class="badge text-bg-info">23m</span>
+                  </td>
+                  <td>
+            <div class="float-end">
+                <div class="btn-group btn-group-ssm">
+                    <a class="btn btn-default" title="Build details" aria-label="Build details" href="/runbot/build/124587519">
+                        <i class="fa fa-file-text-o"></i>
+                    </a>
+                    
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124587519" data-global_result="ok" data-global_state="done" data-local_state="done" data-databases="[&#34;all&#34;]" data-domain="124587519-master.runbot324.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124587519-master" data-config_id="438" data-trigger_id="3" data-version_id="1" data-bundle_id="508663" data-description="Post install tests for **web_cohort,web_enterprise,web_gantt,web_grid,web_hierarchy,web_studio,web_tour,web_unsplash**" data-log_list="[&#34;restore&#34;, &#34;start_post_install_tests&#34;]" data-host="runbot324.odoo.com" data-commit_link_ids="17257789,17257838">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+                </div>
+            </div>
+
+                  </td>
+                </tr>
+                <tr class="bg-success-subtle">
+                  <td class="text-truncate" style="max-width: 0; width: 100%;">
+                    <a href="/runbot/build/124587520">
+                      Build
+                      124587520
+                    </a>
+                      Post install tests for <strong>website</strong>
+                  </td>
+                  <td>
+                    <span class="badge text-bg-info">49m</span>
+                  </td>
+                  <td>
+            <div class="float-end">
+                <div class="btn-group btn-group-ssm">
+                    <a class="btn btn-default" title="Build details" aria-label="Build details" href="/runbot/build/124587520">
+                        <i class="fa fa-file-text-o"></i>
+                    </a>
+                    
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124587520" data-global_result="ok" data-global_state="done" data-local_state="done" data-databases="[&#34;all&#34;]" data-domain="124587520-master.runbot180.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124587520-master" data-config_id="438" data-trigger_id="3" data-version_id="1" data-bundle_id="508663" data-description="Post install tests for **website**" data-log_list="[&#34;restore&#34;, &#34;start_post_install_tests&#34;]" data-host="runbot180.odoo.com" data-commit_link_ids="17257789,17257838">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+                </div>
+            </div>
+
+                  </td>
+                </tr>
+                <tr class="bg-success-subtle">
+                  <td class="text-truncate" style="max-width: 0; width: 100%;">
+                    <a href="/runbot/build/124587521">
+                      Build
+                      124587521
+                    </a>
+                      Post install tests for <strong>website_mail,website_profile,whatsapp</strong>
+                  </td>
+                  <td>
+                    <span class="badge text-bg-info">5m</span>
+                  </td>
+                  <td>
+            <div class="float-end">
+                <div class="btn-group btn-group-ssm">
+                    <a class="btn btn-default" title="Build details" aria-label="Build details" href="/runbot/build/124587521">
+                        <i class="fa fa-file-text-o"></i>
+                    </a>
+                    
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124587521" data-global_result="ok" data-global_state="done" data-local_state="done" data-databases="[&#34;all&#34;]" data-domain="124587521-master.runbot180.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124587521-master" data-config_id="438" data-trigger_id="3" data-version_id="1" data-bundle_id="508663" data-description="Post install tests for **website_mail,website_profile,whatsapp**" data-log_list="[&#34;restore&#34;, &#34;start_post_install_tests&#34;]" data-host="runbot180.odoo.com" data-commit_link_ids="17257789,17257838">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+                </div>
+            </div>
+
+                  </td>
+                </tr>
+            </table>
+          </div>
+          <div class="col-md-12">
+            <table class="table table-sm">
+              <tr>
+                <th>Date (UTC)</th>
+                <th>Level</th>
+                <th>Message</th>
+              </tr>
+                <tr class="log-runbot" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 09:59:13</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;"><b>INFO</b>
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg--subtle"><span>Init build environment with config Parallel testing (light) </span>
+                  </td>
+                  <td class="bg--subtle">
+                  </td>
+                </tr>
+                <tr class="separator" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 09:59:13</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;">
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg-separator-subtle"><span>Starting step <strong>Create at install</strong> from config <strong>Parallel testing (light)</strong></span>
+                  </td>
+                  <td class="bg-separator-subtle">
+                  </td>
+                </tr>
+                <tr class="log-runbot" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 09:59:13</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;"><b>INFO</b>
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg--subtle"><span>Modified modules: ai_website,html_editor,mail,web
+Dependencies: ai,ai_html_builder,base,base_setup,bus,web_tour,web_unsplash,website
+Dependant: account_followup,ai,ai_auto_install,ai_website_livechat,analytic,api_doc,approvals,attachment_indexation,auth_oauth,auth_passkey,auth_password_policy,auth_signup,auth_totp,auth_totp_mail,barcodes,base_automation,base_import,base_import_module,base_install_request,base_setup,bus,calendar,cloud_storage,contacts,crm,data_cleaning,data_recycle,delivery_bpost,delivery_dhl,delivery_dhl_rest,delivery_easypost,delivery_fedex,delivery_fedex_rest,delivery_sendcloud,delivery_shiprocket,delivery_ups,delivery_ups_rest,delivery_usps,delivery_usps_rest,digest,event,fleet,gamification,google_address_autocomplete,google_gmail,helpdesk,hr_attendance_zkteco,hr_payroll,html_builder,http_routing,iap,iap_extract,iap_mail,im_livechat,iot,iot_webserial,knowledge,link_tracker,lunch,mail_bot,mail_enterprise,mail_group,mail_plugin,mail_tracking,maintenance,mass_mailing,microsoft_outlook,mysubscription,obox,onboarding,phone_validation,point_of_sale,portal,portal_discuss,privacy_lookup,product,project,rating,resource,resource_mail,room,sales_team,sign,sms,snailmail,social,spreadsheet,spreadsheet_edition,survey,test_discuss_full,test_html_field_history,test_http,test_import_export,test_mail,test_mail_enterprise,test_mail_full,test_mail_sms,test_tests,test_translation_mode,test_web,test_whatsapp,timer,utm,voip,web_cohort,web_enterprise,web_gantt,web_grid,web_hierarchy,web_studio,web_tour,web_unsplash,website,website_mail,website_profile,whatsapp
+Test modules: test_mail,test_web</span>
+                  </td>
+                  <td class="bg--subtle">
+                  </td>
+                </tr>
+                <tr class="log-subbuild" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 09:59:13</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;"><b>INFO</b>
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg-success-subtle">
+                      <a href="/runbot/build/124586025">
+                        Build #
+                        124586025
+                      </a>
+                      <span>created with config Test at install</span>
+                  </td>
+                  <td class="bg-success-subtle">
+                  </td>
+                </tr>
+                <tr class="log-subbuild" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 09:59:13</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;"><b>INFO</b>
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg-success-subtle">
+                      <a href="/runbot/build/124586026">
+                        Build #
+                        124586026
+                      </a>
+                      <span>created with config Test pylint</span>
+                  </td>
+                  <td class="bg-success-subtle">
+                  </td>
+                </tr>
+                <tr class="separator" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 09:59:34</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;">
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg-separator-subtle"><span>Starting step <strong>Install all</strong> from config <strong>Parallel testing (light)</strong>  <a href="http://runbot297.odoo.com/runbot/static/build/124585551-master/logs/install_all.txt"><i class="fa fa-file-text"></i></a></span>
+                  </td>
+                  <td class="bg-separator-subtle">
+                  </td>
+                </tr>
+                <tr class="log-markdown" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 09:59:34</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;">
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg--subtle"><span>Using Dockerfile Tag <a href="/runbot/dockerfile_result/odoo:DockerMaster/4356b6304a622e4e5b092db4233cb464fcad72a0f23b69c73674c01a4484582e">odoo:DockerMaster</a></span>
+                  </td>
+                  <td class="bg--subtle">
+                  </td>
+                </tr>
+                <tr class="log-server" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 10:00:03</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;">
+                        <b><a href="https://github.com/odoo/odoo/blob/f29ecf9617e30bdde7f5a970547ebd4e27e69b4b/odoo/_monkeypatches/logging.py#L22" title="Logger: odoo.modules.loading
+Func: &lt;lambda&gt;">INFO</a></b>
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg--subtle">
+                      <span class="pre">1 modules loaded in 7.69s, 8340 queries (+8340 extra)</span>
+                  </td>
+                  <td class="bg--subtle">
+                  </td>
+                </tr>
+                <tr class="log-server" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 10:12:48</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;">
+                        <b><a href="https://github.com/odoo/odoo/blob/f29ecf9617e30bdde7f5a970547ebd4e27e69b4b/odoo/_monkeypatches/logging.py#L22" title="Logger: odoo.modules.loading
+Func: &lt;lambda&gt;">INFO</a></b>
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg--subtle">
+                      <span class="pre">970 modules loaded in 760.27s, 453812 queries (+453833 extra)</span>
+                  </td>
+                  <td class="bg--subtle">
+                  </td>
+                </tr>
+                <tr class="log-server" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 10:12:52</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;">
+                        <b><a href="https://github.com/odoo/odoo/blob/f29ecf9617e30bdde7f5a970547ebd4e27e69b4b/odoo/_monkeypatches/logging.py#L22" title="Logger: odoo.addons.base.models.ir_qweb
+Func: &lt;lambda&gt;">INFO</a></b>
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg--subtle">
+                      <span class="pre">Pregenerating assets bundles</span>
+                  </td>
+                  <td class="bg--subtle">
+                  </td>
+                </tr>
+                <tr class="log-runbot" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 10:14:28</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;"><b>INFO</b>
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg--subtle"><span>Getting results for build 124585551-master</span>
+                  </td>
+                  <td class="bg--subtle">
+                  </td>
+                </tr>
+                <tr class="log-markdown" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 10:14:28</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;">
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg--subtle"><span>Step Install all finished in 15m <a href="https://runbot297.odoo.com/runbot/static/build/124585551-master/logs/124585551-master-all.zip"><i class="fa fa-download"></i></a></span>
+                  </td>
+                  <td class="bg--subtle">
+                  </td>
+                </tr>
+                <tr class="separator" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 10:14:28</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;">
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg-separator-subtle"><span>Starting step <strong>Create post install</strong> from config <strong>Parallel testing (light)</strong></span>
+                  </td>
+                  <td class="bg-separator-subtle">
+                  </td>
+                </tr>
+                <tr class="log-subbuild" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 10:14:28</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;"><b>INFO</b>
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg-success-subtle">
+                      <a href="/runbot/build/124587507">
+                        Build #
+                        124587507
+                      </a>
+                      <span>created with config Test Post Install</span>
+                  </td>
+                  <td class="bg-success-subtle">
+                  </td>
+                </tr>
+                <tr class="log-subbuild" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 10:14:28</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;"><b>INFO</b>
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg-success-subtle">
+                      <a href="/runbot/build/124587508">
+                        Build #
+                        124587508
+                      </a>
+                      <span>created with config Test Post Install</span>
+                  </td>
+                  <td class="bg-success-subtle">
+                  </td>
+                </tr>
+                <tr class="log-subbuild" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 10:14:28</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;"><b>INFO</b>
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg-success-subtle">
+                      <a href="/runbot/build/124587511">
+                        Build #
+                        124587511
+                      </a>
+                      <span>created with config Test Post Install</span>
+                  </td>
+                  <td class="bg-success-subtle">
+                  </td>
+                </tr>
+                <tr class="log-subbuild" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 10:14:28</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;"><b>INFO</b>
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg-success-subtle">
+                      <a href="/runbot/build/124587512">
+                        Build #
+                        124587512
+                      </a>
+                      <span>created with config Test Post Install</span>
+                  </td>
+                  <td class="bg-success-subtle">
+                  </td>
+                </tr>
+                <tr class="log-subbuild" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 10:14:28</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;"><b>INFO</b>
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg-success-subtle">
+                      <a href="/runbot/build/124587513">
+                        Build #
+                        124587513
+                      </a>
+                      <span>created with config Test Post Install</span>
+                  </td>
+                  <td class="bg-success-subtle">
+                  </td>
+                </tr>
+                <tr class="log-subbuild" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 10:14:28</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;"><b>INFO</b>
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg-success-subtle">
+                      <a href="/runbot/build/124587514">
+                        Build #
+                        124587514
+                      </a>
+                      <span>created with config Test Post Install</span>
+                  </td>
+                  <td class="bg-success-subtle">
+                  </td>
+                </tr>
+                <tr class="log-subbuild" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 10:14:28</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;"><b>INFO</b>
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg-success-subtle">
+                      <a href="/runbot/build/124587515">
+                        Build #
+                        124587515
+                      </a>
+                      <span>created with config Test Post Install</span>
+                  </td>
+                  <td class="bg-success-subtle">
+                  </td>
+                </tr>
+                <tr class="log-subbuild" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 10:14:28</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;"><b>INFO</b>
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg-success-subtle">
+                      <a href="/runbot/build/124587516">
+                        Build #
+                        124587516
+                      </a>
+                      <span>created with config Test Post Install</span>
+                  </td>
+                  <td class="bg-success-subtle">
+                  </td>
+                </tr>
+                <tr class="log-subbuild" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 10:14:28</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;"><b>INFO</b>
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg-success-subtle">
+                      <a href="/runbot/build/124587517">
+                        Build #
+                        124587517
+                      </a>
+                      <span>created with config Test Post Install</span>
+                  </td>
+                  <td class="bg-success-subtle">
+                  </td>
+                </tr>
+                <tr class="log-subbuild" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 10:14:28</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;"><b>INFO</b>
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg-success-subtle">
+                      <a href="/runbot/build/124587518">
+                        Build #
+                        124587518
+                      </a>
+                      <span>created with config Test Post Install</span>
+                  </td>
+                  <td class="bg-success-subtle">
+                  </td>
+                </tr>
+                <tr class="log-subbuild" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 10:14:28</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;"><b>INFO</b>
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg-success-subtle">
+                      <a href="/runbot/build/124587519">
+                        Build #
+                        124587519
+                      </a>
+                      <span>created with config Test Post Install</span>
+                  </td>
+                  <td class="bg-success-subtle">
+                  </td>
+                </tr>
+                <tr class="log-subbuild" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 10:14:28</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;"><b>INFO</b>
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg-success-subtle">
+                      <a href="/runbot/build/124587520">
+                        Build #
+                        124587520
+                      </a>
+                      <span>created with config Test Post Install</span>
+                  </td>
+                  <td class="bg-success-subtle">
+                  </td>
+                </tr>
+                <tr class="log-subbuild" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 10:14:28</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;"><b>INFO</b>
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg-success-subtle">
+                      <a href="/runbot/build/124587521">
+                        Build #
+                        124587521
+                      </a>
+                      <span>created with config Test Post Install</span>
+                  </td>
+                  <td class="bg-success-subtle">
+                  </td>
+                </tr>
+                <tr class="separator" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 10:14:37</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;">
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg-separator-subtle"><span>Starting step <strong>export_profiling</strong> from config <strong>Parallel testing (light)</strong></span>
+                  </td>
+                  <td class="bg-separator-subtle">
+                  </td>
+                </tr>
+                <tr class="log-runbot" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 10:14:42</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;"><b>INFO</b>
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg--subtle"><span>Step export_profiling finished in 5s</span>
+                  </td>
+                  <td class="bg--subtle">
+                  </td>
+                </tr>
+                <tr class="separator" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 10:14:42</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;">
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg-separator-subtle"><span>Starting step <strong>cleanup</strong> from config <strong>Parallel testing (light)</strong></span>
+                  </td>
+                  <td class="bg-separator-subtle">
+                  </td>
+                </tr>
+                <tr class="log-runbot" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 10:14:42</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;"><b>INFO</b>
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg--subtle"><span>Cleaning build databases and datadir</span>
+                  </td>
+                  <td class="bg--subtle">
+                  </td>
+                </tr>
+                <tr class="log-runbot" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 10:14:50</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;"><b>INFO</b>
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg--subtle"><span>Step cleanup finished in 8s</span>
+                  </td>
+                  <td class="bg--subtle">
+                  </td>
+                </tr>
+            </table>
+          </div>
+        </div>
+      
+                </body>
+            </html>

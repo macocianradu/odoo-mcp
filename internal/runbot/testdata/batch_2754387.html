@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+            <html data-bs-theme="legacy">
+                <head>
+                    <meta charset="utf-8"/>
+                    <title>Batch 2754387 (master-oi-custom-backend-jula)</title>
+
+                    <link type="text/css" rel="stylesheet" href="/web/assets/1/54435b1/runbot.assets_frontend.min.css"/>
+                    <script type="text/javascript" defer="defer" src="/web/assets/1/873b2fa/runbot.assets_frontend.min.js" onerror="__odooAssetError=1"></script>
+
+
+                        <link rel="icon" type="image/png" href="/runbot/static/src/img/icon_warn.png"/>
+                        <link rel="icon" type="image/svg+xml" href="/runbot/static/src/img/icon_warn.svg"/>
+                </head>
+                <body>
+                    <header>
+                        <nav class="navbar navbar-expand-md bg-body-tertiary">
+                            <a href="/runbot/rd-1">
+                                <b class="active_project">
+                                    R&amp;D
+                                </b>
+                            </a>
+                            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#top_menu_collapse">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="top_menu_collapse">
+                                <ul class="nav navbar-nav ms-auto text-end" id="top_menu">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="/runbot/rd-1">
+                                                    R&amp;D
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="/runbot/industry-9">
+                                                    Industry
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="/runbot/tutorials-12">
+                                                    Tutorials
+                                                </a>
+                                            </li>
+                                    <li class="nav-item">
+                                        <button command="show-modal" commandfor="collapsePreference" type="button" class="nav-link">
+                                            <i class="fa fa-gear"></i>
+                                        </button>
+                                    </li>
+                                        <li class="nav-item dropdown">
+                                            <b>
+                                                <a class="nav-link" href="/web/login?redirect=/runbot/batch/2754387">Login</a>
+                                            </b>
+                                        </li>
+                                </ul>
+                                
+                            </div>
+                        </nav>
+                    </header>
+                    <dialog id="collapsePreference" class="modal modal-xl">
+                        <div class="modal-dialog">
+                            <form class="modal-content" method="post" action="/runbot/submit" id="preferences_form">
+                                <header class="modal-header">
+                                    <h5 class="modal-title">Preferences</h5>
+                                    <button type="button" class="btn-close" command="close" commandfor="collapsePreference"></button>
+                                </header>
+                                <div class="modal-body">
+                                    <input type="hidden" name="redirect" value="/runbot/batch/2754387?"/>
+                                    <div>
+                                        <div class="form-check form-switch">
+                                        <label for="more" class="form-check-label">More info</label>
+                                        <input onclick="document.getElementById(&#39;preferences_form&#39;).submit()" class="form-check-input" type="checkbox" role="switch" id="more" name="more"/>
+                                    </div></div>
+                                    <div>
+                                        <label for="theme_selection" style="min-width: 80px">Theme:</label>
+                                        <div id="theme_selection" class="text-nowrap btn-group btn-group-sm" role="group">
+                                        <button onclick="document.cookie = &#39;theme=legacy; expires=Thu, 1 Dec 2942 12:00:00 UTC; path=/&#39;; location.reload();" type="button" class="btn btn-primary">Legacy</button>
+                                        <button onclick="document.cookie = &#39;theme=dark; expires=Thu, 1 Dec 2942 12:00:00 UTC; path=/&#39;; location.reload();" type="button" class="btn btn-secondary">Dark</button>
+                                        <button onclick="document.cookie = &#39;theme=light; expires=Thu, 1 Dec 2942 12:00:00 UTC; path=/&#39;; location.reload();" type="button" class="btn btn-secondary">Light</button>
+                                        <button onclick="document.cookie = &#39;theme=red404; expires=Thu, 1 Dec 2942 12:00:00 UTC; path=/&#39;; location.reload();" type="button" class="btn btn-secondary">Red404</button>
+                                    </div></div>
+                                    <div>
+                                        <label for="theme_selection" style="min-width: 80px">Sticky:</label>
+                                        <div class="text-nowrap btn-group btn-group-sm" role="group">
+                                        <button onclick="document.cookie = &#39;filter_mode=default; expires=Thu, 1 Dec 2942 12:00:00 UTC; path=/&#39;; location.reload();" type="button" help="Only display sticky except if searching" class="btn btn-primary">Default</button>
+                                        <button onclick="document.cookie = &#39;filter_mode=all; expires=Thu, 1 Dec 2942 12:00:00 UTC; path=/&#39;; location.reload();" type="button" class="btn btn-secondary">All</button>
+                                        <button onclick="document.cookie = &#39;filter_mode=sticky; expires=Thu, 1 Dec 2942 12:00:00 UTC; path=/&#39;; location.reload();" type="button" class="btn btn-secondary">Sticky only</button>
+                                        <button onclick="document.cookie = &#39;filter_mode=nosticky; expires=Thu, 1 Dec 2942 12:00:00 UTC; path=/&#39;; location.reload();" type="button" class="btn btn-secondary">Dev only</button>
+                                    </div></div>
+                                    <div>
+                                        <label for="theme_selection" style="min-width: 80px">Category:</label>
+                                        <div class="text-nowrap btn-group btn-group-sm" role="group">
+                                    </div></div>
+
+                                    <hr class="separator"/>
+                                </div>
+                                <footer class="modal-footer">
+                                    <button onclick="Array.from(document.getElementsByClassName(&#39;trigger_selection_show&#39;)).forEach((element) =&gt; element.checked = true); Array.from(document.getElementsByClassName(&#39;trigger_selection_hide&#39;)).forEach((element) =&gt; element.checked = false); event.preventDefault();" class="btn btn-secondary">Reset to default</button>
+                                    <button onclick="Array.from(document.getElementsByClassName(&#39;trigger_selection&#39;)).forEach((element) =&gt; element.checked = true); event.preventDefault();" class="btn btn-secondary">All</button>
+                                    <button onclick="Array.from(document.getElementsByClassName(&#39;trigger_selection&#39;)).forEach((element) =&gt; element.checked = false); event.preventDefault();" class="btn btn-secondary">None</button>
+                                    <button type="submit" class="btn btn-primary">Save</button>
+                                </footer>
+                            </form>
+                        </div>
+                    </dialog>
+            <template id="build-options-dropdown-menu">
+                <ul class="dropdown-menu dropdown-menu-end" role="menu">
+                    <li t-if="local_state==&#39;running&#39;" t-foreach="databases" t-as="db_suffix">
+                        <a class="dropdown-item" href="/runbot/run/{{id}}/{{db_suffix}}">
+                            <i class="fa fa-fw fa-sign-in"></i> Connect {{db_suffix}}
+                        </a>
+                    </li>
+                    <li t-if="local_state==&#39;running&#39;">
+                        <a class="dropdown-item" href="http://{{domain}}/web/database/selector">
+                            <i class="fa fa-fw fa-sign-in"></i> Database selector
+                        </a>
+                    </li>
+                    <li t-if="host and log_list"><hr class="dropdown-divider"/></li>
+                    <li t-if="host" t-foreach="log_list" t-as="log_name">
+                        <a class="dropdown-item" href="http://{{host}}/runbot/static/build/{{dest}}/logs/{{log_name}}.txt">
+                            <i class="fa fa-fw fa-file-text-o"></i> Full {{log_name}} logs
+                        </a>
+                    </li>
+   <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="http://mail.{{host}}" target="new">
+        <i class="fa fa-envelope"></i>
+        Mailhog
+    </a>
+                </ul>
+            </template>
+                    
+                <div class="row g-0">
+                    <div class="col-lg-6">
+                    <table class="table">
+                        <tr>
+                            <td>Bundle</td>
+                            <td>
+                                <a href="/runbot/bundle/508663">master-oi-custom-backend-jula</a>
+                                &emsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Priority</td>
+                            <td>
+                                        Normal
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Version</td>
+                            <td>master</td>
+                        </tr>
+                        <tr>
+                            <td>Create date</td>
+                            <td>2026-09-09 09:52:09.113904</td>
+                        </tr>
+                        <tr>
+                            <td class="bg-success-subtle">Commits</td>
+                            <td class="bg-success-subtle">
+                                <div>
+                                    <span></span>
+                                    <a href="/runbot/commit/2913963" title="This commit is a new head">
+                                        <i class="fa fa-fw fa-hashtag"></i>
+                                        <span>odoo:f29ecf96</span>
+                                    </a>
+                                    <a title="View Commit on Github" href="https://github.com/odoo/odoo/commit/f29ecf9617e30bdde7f5a970547ebd4e27e69b4b"><i class="fa fa-github"></i></a>
+                                    <small>
+                                        found in branch
+                                        <span>286248</span>
+                                            <span class="text-success">+4366</span>
+                                            <span class="text-danger">-320</span>
+                                            <span class="text-info">
+                                                (
+                                                <span>17</span>
+                                                <i class="fa fa-file"></i>
+                                                )
+                                                <span io="behind">(
+                                                    <span class="text-success">2 ahead</span>
+                                                    ,
+                                                    <span class="text-danger">67 behind</span>
+                                                )</span>
+                                            </span>
+                                        <br/>
+                                    </small>
+                                        <a href="/runbot/tree_hash/2c2347cbbe2bb7237568e992168dfebf8e596d44">
+                                            <i class="fa fa-fw fa-tree"></i>
+                                            2c2347cb
+                                        </a><br/>
+                                        Subject:
+                                        <span>[IMP] web, html_editor, mail: use ligature for `odoo_ui_icons`</span>
+                                        <br/>
+                                        Author:
+                                        <span>Julien Launois (jula)</span>
+                                        (
+                                        <span>&lt;jula@odoo.com&gt;</span>
+                                        )
+                                        <br/>
+                                        Commit date:
+                                        <span>2026-09-09 09:37:33</span>
+                                        <br/>
+                                    <hr/>
+                                </div><div>
+                                    <span></span>
+                                    <a href="/runbot/commit/2911809" title="This commit is an existing head from bundle branches">
+                                        <i class="fa fa-fw fa-link"></i>
+                                        <span>enterprise:cc35fcee</span>
+                                    </a>
+                                    <a title="View Commit on Github" href="https://github.com/odoo/enterprise/commit/cc35fceea203f230cc9ede08a4cd3ad7515119c9"><i class="fa fa-github"></i></a>
+                                    <small>
+                                        found in branch
+                                        <span>130652</span>
+                                            <span class="text-success">+7</span>
+                                            <span class="text-danger">-8</span>
+                                            <span class="text-info">
+                                                (
+                                                <span>1</span>
+                                                <i class="fa fa-file"></i>
+                                                )
+                                                <span io="behind">(
+                                                    <span class="text-success">1 ahead</span>
+                                                    ,
+                                                    <span class="text-danger">75 behind</span>
+                                                )</span>
+                                            </span>
+                                        <br/>
+                                    </small>
+                                        <a href="/runbot/tree_hash/f66c8672d7fece06d9b8a07ab79b8ce008d6876c">
+                                            <i class="fa fa-fw fa-tree"></i>
+                                            f66c8672
+                                        </a><br/>
+                                        Subject:
+                                        <span>[FIX] ai_website: adapt to the moved icon index</span>
+                                        <br/>
+                                        Author:
+                                        <span>Julien Launois (jula)</span>
+                                        (
+                                        <span>&lt;jula@odoo.com&gt;</span>
+                                        )
+                                        <br/>
+                                        Commit date:
+                                        <span>2026-09-08 13:14:53</span>
+                                        <br/>
+                                    <hr/>
+                                </div><div>
+                                    <span></span>
+                                    <a href="/runbot/commit/2911639" title="This commit is an existing head from bundle branches">
+                                        <i class="fa fa-fw fa-link"></i>
+                                        <span>design-themes:8afbce6c</span>
+                                    </a>
+                                    <a title="View Commit on Github" href="https://github.com/odoo/design-themes/commit/8afbce6cda5be7e67ceec0d4b45c7357d7d203f7"><i class="fa fa-github"></i></a>
+                                    <small>
+                                        found in branch
+                                        <span>1343</span>
+                                            <span class="text-success">+1410</span>
+                                            <span class="text-danger">-1719</span>
+                                            <span class="text-info">
+                                                (
+                                                <span>34</span>
+                                                <i class="fa fa-file"></i>
+                                                )
+                                                <span io="behind">(
+                                                    <span class="text-success">1 ahead</span>
+                                                    ,
+                                                    <span class="text-danger">0 behind</span>
+                                                )</span>
+                                            </span>
+                                        <br/>
+                                    </small>
+                                        <a href="/runbot/tree_hash/fc08019ba0556e02348e31909a1719dc5fb39b43">
+                                            <i class="fa fa-fw fa-tree"></i>
+                                            fc08019b
+                                        </a><br/>
+                                        Subject:
+                                        <span>[IMP] *: refresh theme previews</span>
+                                        <br/>
+                                        Author:
+                                        <span>Julien Launois (jula)</span>
+                                        (
+                                        <span>&lt;jula@odoo.com&gt;</span>
+                                        )
+                                        <br/>
+                                        Commit date:
+                                        <span>2026-09-08 12:27:34</span>
+                                        <br/>
+                                    <hr/>
+                                </div><div>
+                                    <span></span>
+                                    <a href="/runbot/commit/2911162" title="This commit is matched from a base batch with matching merge_base">
+                                        <i class="fa fa-fw fa-code-fork"></i>
+                                        <span>upgrade:76770e28</span>
+                                    </a>
+                                    <a title="View Commit on Github" href="https://github.com/odoo/upgrade/commit/76770e28335f8f919c41d7afd889f51a37556d73"><i class="fa fa-github"></i></a>
+                                    <small>
+                                        from base:
+                                        <span>master</span>
+                                        <br/>
+                                    </small>
+                                    <hr/>
+                                </div><div>
+                                    <span></span>
+                                    <a href="/runbot/commit/2911163" title="This commit is matched from a base batch with matching merge_base">
+                                        <i class="fa fa-fw fa-code-fork"></i>
+                                        <span>documentation:71063a07</span>
+                                    </a>
+                                    <a title="View Commit on Github" href="https://github.com/odoo/documentation/commit/71063a075bae02bb31232ec08eaeb931fcae415f"><i class="fa fa-github"></i></a>
+                                    <small>
+                                        from base:
+                                        <span>master</span>
+                                        <br/>
+                                    </small>
+                                    <hr/>
+                                </div><div>
+                                    <span></span>
+                                    <a href="/runbot/commit/2909179" title="This commit is matched from a base batch with matching merge_base">
+                                        <i class="fa fa-fw fa-code-fork"></i>
+                                        <span>upgrade-util:bcb57d01</span>
+                                    </a>
+                                    <a title="View Commit on Github" href="https://github.com/odoo/upgrade-util/commit/bcb57d01dcca86d27a6e9639eacab6cbe9ad93ed"><i class="fa fa-github"></i></a>
+                                    <small>
+                                        from base:
+                                        <span>master</span>
+                                        <br/>
+                                    </small>
+                                    <hr/>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    </div>
+                    <div class="col-lg-6">
+                    <table class="table">
+                        <tr>
+                            <td>Builds</td>
+                            <td>
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-success disabled">
+                    <i class="fa fa-check fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754387/build/124585434" class="btn btn-default slot_name">
+                    
+                    <span>Minimal check</span>
+                </a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124585434" data-global_result="ok" data-global_state="done" data-local_state="done" data-databases="[]" data-domain="124585434-master.runbot341.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124585434-master" data-config_id="385" data-trigger_id="101" data-version_id="1" data-bundle_id="508663" data-description="Minimal check before starting other tests" data-log_list="[]" data-host="runbot341.odoo.com" data-commit_link_ids="17257789,17257838,17257839,17257840,17257841,17257842">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-success disabled">
+                    <i class="fa fa-check fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754387/build/124585548" class="btn btn-default slot_name">
+                    
+                    <span>Odoo LS Check</span>
+                </a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124585548" data-global_result="ok" data-global_state="done" data-local_state="done" data-databases="[]" data-domain="124585548-master.runbot340.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124585548-master" data-config_id="420" data-trigger_id="146" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[&#34;odools_lint_diff&#34;]" data-host="runbot340.odoo.com" data-commit_link_ids="17257789,17257838,17257839">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-success disabled">
+                    <i class="fa fa-check fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754387/build/124585549" class="btn btn-default slot_name">
+                    
+                    <span>Community Run</span>
+                </a>
+                <a class="fa fa-sign-in btn btn-info" href="/runbot/run/124585549"></a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124585549" data-global_result="ok" data-global_state="running" data-local_state="running" data-databases="[&#34;all&#34;, &#34;base&#34;]" data-domain="124585549-master.runbot321.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124585549-master" data-config_id="382" data-trigger_id="1" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[&#34;install_run&#34;, &#34;install_base&#34;, &#34;pre_run_config&#34;, &#34;run&#34;]" data-host="runbot321.odoo.com" data-commit_link_ids="17257789">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-success disabled">
+                    <i class="fa fa-check fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754387/build/124585550" class="btn btn-default slot_name">
+                    
+                    <span>Enterprise Run</span>
+                </a>
+                <a class="fa fa-sign-in btn btn-info" href="/runbot/run/124585550"></a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124585550" data-global_result="ok" data-global_state="running" data-local_state="running" data-databases="[&#34;all&#34;, &#34;base&#34;]" data-domain="124585550-master.runbot299.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124585550-master" data-config_id="382" data-trigger_id="122" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[&#34;install_run&#34;, &#34;install_base&#34;, &#34;pre_run_config&#34;, &#34;run&#34;]" data-host="runbot299.odoo.com" data-commit_link_ids="17257789,17257838">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-success disabled">
+                    <i class="fa fa-check fa-fw"></i>
+                </span>
+                <a class="badge btn btn-info" href="/runbot/bundle/508663">Light</a>
+                <a href="/runbot/batch/2754387/build/124585551" class="btn btn-default slot_name">
+                    
+                    <span>Enterprise Tests</span>
+                </a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124585551" data-global_result="ok" data-global_state="done" data-local_state="done" data-databases="[&#34;all&#34;]" data-domain="124585551-master.runbot297.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124585551-master" data-config_id="438" data-trigger_id="3" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[&#34;install_all&#34;]" data-host="runbot297.odoo.com" data-commit_link_ids="17257789,17257838">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-success disabled">
+                    <i class="fa fa-check fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754387/build/124585552" class="btn btn-default slot_name">
+                    
+                    <span>Design-themes</span>
+                </a>
+                <a class="fa fa-sign-in btn btn-info" href="/runbot/run/124585552"></a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124585552" data-global_result="ok" data-global_state="running" data-local_state="running" data-databases="[&#34;design-theme&#34;]" data-domain="124585552-master.runbot238.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124585552-master" data-config_id="120" data-trigger_id="2" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[&#34;design-theme&#34;, &#34;pre_run_config&#34;, &#34;run&#34;]" data-host="runbot238.odoo.com" data-commit_link_ids="17257789,17257838,17257839">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-default disabled">
+                    <i class="fa fa- fa-fw"></i>
+                </span>
+                <span class="btn btn-default disabled slot_name">
+                    <span>Documentation</span>
+                </span>
+            </div>
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-default disabled">
+                    <i class="fa fa- fa-fw"></i>
+                </span>
+                <span class="btn btn-default disabled slot_name">
+                    <span>L10n  standalone test</span>
+                </span>
+            </div>
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-success disabled">
+                    <i class="fa fa-check fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754387/build/124585553" class="btn btn-default slot_name">
+                    
+                    <span>Templates enterprise</span>
+                </a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124585553" data-global_result="ok" data-global_state="done" data-local_state="done" data-databases="[&#34;no-demo-all&#34;]" data-domain="124585553-master.runbot122.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124585553-master" data-config_id="178" data-trigger_id="11" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[&#34;install_upgrade_template&#34;]" data-host="runbot122.odoo.com" data-commit_link_ids="17257789,17257838">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-success disabled">
+                    <i class="fa fa-check fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754387/build/124585580" class="btn btn-default slot_name">
+                    
+                    <span>Upgrade current</span>
+                </a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124585580" data-global_result="ok" data-global_state="done" data-local_state="done" data-databases="[]" data-domain="124585580-master.runbot105.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124585580-master" data-config_id="184" data-trigger_id="12" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[]" data-host="runbot105.odoo.com" data-commit_link_ids="17257789,17257838,17257840,17257842">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-default disabled">
+                    <i class="fa fa- fa-fw"></i>
+                </span>
+                <span class="btn btn-default disabled slot_name">
+                    <span>Upgrade stable</span>
+                </span>
+            </div>
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-success disabled">
+                    <i class="fa fa-check fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754387/build/124585554" class="btn btn-default slot_name">
+                    
+                    <span>Distro check</span>
+                </a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124585554" data-global_result="ok" data-global_state="done" data-local_state="done" data-databases="[]" data-domain="124585554-master.runbot140.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124585554-master" data-config_id="372" data-trigger_id="87" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[]" data-host="runbot140.odoo.com" data-commit_link_ids="17257789,17257838,17257839">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-success disabled">
+                    <i class="fa fa-check fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754387/build/124585555" class="btn btn-default slot_name">
+                    
+                    <span>Check Style</span>
+                </a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124585555" data-global_result="ok" data-global_state="done" data-local_state="done" data-databases="[]" data-domain="124585555-master.runbot235.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124585555-master" data-config_id="209" data-trigger_id="25" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[&#34;check_style_ruff&#34;, &#34;check_semgrep_style&#34;]" data-host="runbot235.odoo.com" data-commit_link_ids="17257789,17257838">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-success disabled">
+                    <i class="fa fa-check fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754387/build/124585556" class="btn btn-default slot_name">
+                    
+                    <span>Check Security odoo</span>
+                </a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124585556" data-global_result="ok" data-global_state="done" data-local_state="done" data-databases="[]" data-domain="124585556-master.runbot330.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124585556-master" data-config_id="212" data-trigger_id="26" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[&#34;check_semgrep_security&#34;]" data-host="runbot330.odoo.com" data-commit_link_ids="17257789">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-success disabled">
+                    <i class="fa fa-check fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754387/build/124585557" class="btn btn-default slot_name">
+                    
+                    <span>Check Security enterprise</span>
+                </a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124585557" data-global_result="ok" data-global_state="done" data-local_state="done" data-databases="[]" data-domain="124585557-master.runbot337.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124585557-master" data-config_id="212" data-trigger_id="30" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[&#34;check_semgrep_security&#34;]" data-host="runbot337.odoo.com" data-commit_link_ids="17257838">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-warning disabled">
+                    <i class="fa fa-exclamation-triangle fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754387/build/124585558" class="btn btn-default slot_name">
+                    
+                    <span>Code Owner</span>
+                </a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124585558" data-global_result="warn" data-global_state="done" data-local_state="done" data-databases="[]" data-domain="124585558-master.runbot311.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124585558-master" data-config_id="282" data-trigger_id="40" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[]" data-host="runbot311.odoo.com" data-commit_link_ids="17257789,17257838,17257841">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-default disabled">
+                    <i class="fa fa- fa-fw"></i>
+                </span>
+                <span class="btn btn-default disabled slot_name">
+                    <span>Documentation codeowner coverage</span>
+                </span>
+            </div>
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-default disabled">
+                    <i class="fa fa- fa-fw"></i>
+                </span>
+                <span class="btn btn-default disabled slot_name">
+                    <span>Documentation guidelines</span>
+                </span>
+            </div>
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-success disabled">
+                    <i class="fa fa-check fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754387/build/124585435" class="btn btn-default slot_name">
+                    
+                    <span>CLA</span>
+                </a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124585435" data-global_result="ok" data-global_state="done" data-local_state="done" data-databases="[]" data-domain="124585435-master.runbot229.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124585435-master" data-config_id="153" data-trigger_id="8" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[]" data-host="runbot229.odoo.com" data-commit_link_ids="17257789,17257838">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-default disabled">
+                    <i class="fa fa- fa-fw"></i>
+                </span>
+                <span class="btn btn-default disabled slot_name">
+                    <span>Upgrade updated modules</span>
+                </span>
+            </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Manual</td>
+                            <td>
+                            </td>
+                        </tr>
+                    </table>
+                    </div>
+                </div>
+                    <div class="alert alert-info">
+                        <b>INFO</b>
+                        --
+                        Using batch <a href="/runbot/batch/2751999">2751999</a> to define missing commits
+                    </div>
+                    <div class="alert alert-info">
+                        <b>INFO</b>
+                        --
+                        Batch done
+                    </div>
+            
+                </body>
+            </html>

@@ -1,0 +1,132 @@
+Docker command:
+semgrep scan --disable-nosem -c /data/build/rules --json --timeout=0 --verbose $(cat logs/check_semgrep_security-files_list.txt) > /data/build/results.json
+=================================================
+Adding readonly volume '/data/build/odoo' pointing to /home/odoo/runbot/runbot/runbot/static/sources/odoo/ccec16e870d50f9e99b32d3d0eb32ac78e6a849a 
+Adding readonly volume '/home/odoo/.odoorc' pointing to /home/odoo/runbot/runbot/runbot/static/build/124592268-master/.odoorc 
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+running 50 rules from 50 configs
+using path ignore rules from user provided .semgrepignore
+Rules:
+- rules.JS001
+- rules.JS002
+- rules.JS003
+- rules.JS004
+- rules.JS005
+- rules.JS006
+- rules.JS007
+- rules.JS008
+- rules.NGX001
+- rules.NGX002
+- rules.PY001
+- rules.PY002
+- rules.PY003
+- rules.PY004
+- rules.PY005
+- rules.PY006
+- rules.PY007
+- rules.PY008
+- rules.PY009
+- rules.PY010
+- rules.PY011
+- rules.PY012
+- rules.PY013
+- rules.PY014
+- rules.PY015
+- rules.PY016
+- rules.PY017
+- rules.PY018
+- rules.PY020
+- rules.PY021
+- rules.PY022
+- rules.PY023
+- rules.PY024
+- rules.PY025
+- rules.PY026
+- rules.PY027
+- rules.PY028
+- rules.PY029
+- rules.PY030
+- rules.PY031
+- rules.PY032
+- rules.PY033
+- rules.PY034
+- rules.PY035
+- rules.PY036
+- rules.PY037
+- rules.PY038
+- rules.PY039
+- rules.PY040
+- rules.PY123
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 18 files tracked by git with 50 Code rules:
+                                                                                                                        
+  Language      Rules   Files          Origin   Rules                                                                   
+ ─────────────────────────────        ────────────────                                                                  
+  <multilang>       2      18          Custom      50                                                                   
+  js                8      14                                                                                           
+  python           40       4                                                                                           
+                                                                                                                        
+
+========================================
+Files skipped:
+========================================
+
+  Always skipped by Semgrep:
+
+   • <none>
+
+  Skipped by .gitignore:
+  (Disable by passing --no-git-ignore)
+
+   • <all files not listed by `git ls-files` were skipped>
+
+  Skipped by .semgrepignore:
+  - https://semgrep.dev/docs/ignoring-files-folders-code/#understand-semgrep-defaults
+
+   • <none>
+
+  Skipped by --include patterns:
+
+   • <none>
+
+  Skipped by --exclude patterns:
+
+   • <none>
+
+  Files that couldn't be accessed:
+
+   • <none>
+
+  Skipped by limiting to files smaller than 1000000 bytes:
+  (Adjust with the --max-target-bytes flag)
+
+   • <none>
+
+  Partially analyzed due to parsing or internal Semgrep errors
+
+   • <none>
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+Semgrep's file targeting is getting a revamp! This scan wouldn't see any changes. To learn about what will be different after version 1.116.0, visit https://semgrep.dev/docs/kb/semgrep-code/semgrepignore-ignored for the new specification.
+
+✅ Scan completed successfully.
+ • Findings: 10 (10 blocking)
+ • Rules run: 50
+ • Targets scanned: 18
+ • Parsed lines: ~100.0%
+ • No ignore information available
+Ran 50 rules on 18 files: 10 findings.
+Not sending pseudonymous metrics since metrics are configured to AUTO and registry usage is False

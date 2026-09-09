@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+            <html data-bs-theme="legacy">
+                <head>
+                    <meta charset="utf-8"/>
+                    <title>Runbot R&amp;D</title>
+
+                    <link type="text/css" rel="stylesheet" href="/web/assets/1/54435b1/runbot.assets_frontend.min.css"/>
+                    <script type="text/javascript" defer="defer" src="/web/assets/1/873b2fa/runbot.assets_frontend.min.js" onerror="__odooAssetError=1"></script>
+
+
+                        <link rel="icon" type="image/png" href="/runbot/static/src/img/icon_ok.png"/>
+                        <link rel="icon" type="image/svg+xml" href="/runbot/static/src/img/icon_ok.svg"/>
+                </head>
+                <body>
+                    <header>
+                        <nav class="navbar navbar-expand-md bg-body-tertiary">
+                            <a href="/runbot/rd-1">
+                                <b class="active_project">
+                                    R&amp;D
+                                </b>
+                            </a>
+                            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#top_menu_collapse">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="top_menu_collapse">
+                                <ul class="nav navbar-nav ms-auto text-end" id="top_menu">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="/runbot/rd-1?search=286248">
+                                                    R&amp;D
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="/runbot/industry-9?search=286248">
+                                                    Industry
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="/runbot/tutorials-12?search=286248">
+                                                    Tutorials
+                                                </a>
+                                            </li>
+                                    <li class="nav-item">
+                                        <button command="show-modal" commandfor="collapsePreference" type="button" class="nav-link">
+                                            <i class="fa fa-gear"></i>
+                                        </button>
+                                    </li>
+                                        <li class="nav-item dropdown">
+                                            <b>
+                                                <a class="nav-link" href="/web/login?redirect=/runbot/rd-1/search/286248">Login</a>
+                                            </b>
+                                        </li>
+                                </ul>
+                                
+          <form class="my-2 my-lg-0" role="search" method="get" action="/runbot/rd-1">
+            <div class="input-group ps-0">
+              <input class="form-control my-0 py-1" type="text" placeholder="Search" aria-label="Search" name="search" autofocus="autofocus" value="286248"/>
+              <a class="btn btn-default" title="Open pull requests" href="/runbot/rd-1?has_pr=1&amp;search=286248">
+                <i class="fa fa-github"></i>
+              </a>
+              <button type="submit" class="btn btn-default">
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+          </form>
+        
+                            </div>
+                        </nav>
+                    </header>
+                    <dialog id="collapsePreference" class="modal modal-xl">
+                        <div class="modal-dialog">
+                            <form class="modal-content" method="post" action="/runbot/submit" id="preferences_form">
+                                <header class="modal-header">
+                                    <h5 class="modal-title">Preferences</h5>
+                                    <button type="button" class="btn-close" command="close" commandfor="collapsePreference"></button>
+                                </header>
+                                <div class="modal-body">
+                                    <input type="hidden" name="redirect" value="/runbot/rd-1/search/286248?"/>
+                                    <div>
+                                        <div class="form-check form-switch">
+                                        <label for="more" class="form-check-label">More info</label>
+                                        <input onclick="document.getElementById(&#39;preferences_form&#39;).submit()" class="form-check-input" type="checkbox" role="switch" id="more" name="more"/>
+                                    </div></div>
+                                    <div>
+                                        <label for="theme_selection" style="min-width: 80px">Theme:</label>
+                                        <div id="theme_selection" class="text-nowrap btn-group btn-group-sm" role="group">
+                                        <button onclick="document.cookie = &#39;theme=legacy; expires=Thu, 1 Dec 2942 12:00:00 UTC; path=/&#39;; location.reload();" type="button" class="btn btn-primary">Legacy</button>
+                                        <button onclick="document.cookie = &#39;theme=dark; expires=Thu, 1 Dec 2942 12:00:00 UTC; path=/&#39;; location.reload();" type="button" class="btn btn-secondary">Dark</button>
+                                        <button onclick="document.cookie = &#39;theme=light; expires=Thu, 1 Dec 2942 12:00:00 UTC; path=/&#39;; location.reload();" type="button" class="btn btn-secondary">Light</button>
+                                        <button onclick="document.cookie = &#39;theme=red404; expires=Thu, 1 Dec 2942 12:00:00 UTC; path=/&#39;; location.reload();" type="button" class="btn btn-secondary">Red404</button>
+                                    </div></div>
+                                    <div>
+                                        <label for="theme_selection" style="min-width: 80px">Sticky:</label>
+                                        <div class="text-nowrap btn-group btn-group-sm" role="group">
+                                        <button onclick="document.cookie = &#39;filter_mode=default; expires=Thu, 1 Dec 2942 12:00:00 UTC; path=/&#39;; location.reload();" type="button" help="Only display sticky except if searching" class="btn btn-primary">Default</button>
+                                        <button onclick="document.cookie = &#39;filter_mode=all; expires=Thu, 1 Dec 2942 12:00:00 UTC; path=/&#39;; location.reload();" type="button" class="btn btn-secondary">All</button>
+                                        <button onclick="document.cookie = &#39;filter_mode=sticky; expires=Thu, 1 Dec 2942 12:00:00 UTC; path=/&#39;; location.reload();" type="button" class="btn btn-secondary">Sticky only</button>
+                                        <button onclick="document.cookie = &#39;filter_mode=nosticky; expires=Thu, 1 Dec 2942 12:00:00 UTC; path=/&#39;; location.reload();" type="button" class="btn btn-secondary">Dev only</button>
+                                    </div></div>
+                                    <div>
+                                        <label for="theme_selection" style="min-width: 80px">Category:</label>
+                                        <div class="text-nowrap btn-group btn-group-sm" role="group">
+                                            <button type="button" onclick="document.cookie = &#39;category=1; expires=Thu, 1 Dec 2942 12:00:00 UTC; path=/&#39;; location.reload();" class="btn btn-primary">Default</button>
+                                            <button type="button" onclick="document.cookie = &#39;category=2; expires=Thu, 1 Dec 2942 12:00:00 UTC; path=/&#39;; location.reload();" class="btn btn-secondary">Nightly</button>
+                                            <button type="button" onclick="document.cookie = &#39;category=3; expires=Thu, 1 Dec 2942 12:00:00 UTC; path=/&#39;; location.reload();" class="btn btn-secondary">Weekly</button>
+                                    </div></div>
+
+                                    <hr class="separator"/>
+                                    <div>
+                                        <input type="hidden" name="update_triggers" value="1"/>
+                                                <h3>Default</h3>
+                                                <div class="row">
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_hide" name="trigger_101" id="trigger_101"/>
+                                                            <label for="trigger_101">Minimal check</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_hide" name="trigger_146" id="trigger_146"/>
+                                                            <label for="trigger_146">Odoo LS Check</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_1" id="trigger_1" checked="True"/>
+                                                            <label for="trigger_1">Community Run</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_122" id="trigger_122" checked="True"/>
+                                                            <label for="trigger_122">Enterprise Run</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_hide" name="trigger_3" id="trigger_3"/>
+                                                            <label for="trigger_3">Enterprise Tests</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_2" id="trigger_2" checked="True"/>
+                                                            <label for="trigger_2">Design-themes</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_34" id="trigger_34" checked="True"/>
+                                                            <label for="trigger_34">Documentation</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_hide" name="trigger_35" id="trigger_35"/>
+                                                            <label for="trigger_35">L10n  standalone test</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_hide" name="trigger_11" id="trigger_11"/>
+                                                            <label for="trigger_11">Templates enterprise</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_hide" name="trigger_12" id="trigger_12"/>
+                                                            <label for="trigger_12">Upgrade current</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_hide" name="trigger_6" id="trigger_6"/>
+                                                            <label for="trigger_6">Upgrade stable</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_hide" name="trigger_87" id="trigger_87"/>
+                                                            <label for="trigger_87">Distro check</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_hide" name="trigger_25" id="trigger_25"/>
+                                                            <label for="trigger_25">Check Style</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_125" id="trigger_125" checked="True"/>
+                                                            <label for="trigger_125">Stable policy check</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_hide" name="trigger_26" id="trigger_26"/>
+                                                            <label for="trigger_26">Check Security odoo</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_hide" name="trigger_30" id="trigger_30"/>
+                                                            <label for="trigger_30">Check Security enterprise</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_hide" name="trigger_40" id="trigger_40"/>
+                                                            <label for="trigger_40">Code Owner</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_hide" name="trigger_47" id="trigger_47"/>
+                                                            <label for="trigger_47">Documentation codeowner coverage</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_hide" name="trigger_67" id="trigger_67"/>
+                                                            <label for="trigger_67">Documentation guidelines</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_hide" name="trigger_8" id="trigger_8"/>
+                                                            <label for="trigger_8">CLA</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_hide" name="trigger_37" id="trigger_37"/>
+                                                            <label for="trigger_37">Upgrade updated modules</label>
+                                                        </div>
+                                                </div>
+                                                <h3>Nightly</h3>
+                                                <div class="row">
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_136" id="trigger_136" checked="True"/>
+                                                            <label for="trigger_136">Multi design theme</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_61" id="trigger_61" checked="True"/>
+                                                            <label for="trigger_61">Multi enterprise</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_118" id="trigger_118" checked="True"/>
+                                                            <label for="trigger_118">Multi enterprise without autotags</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_73" id="trigger_73" checked="True"/>
+                                                            <label for="trigger_73">Multi l10n</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_117" id="trigger_117" checked="True"/>
+                                                            <label for="trigger_117">Multi l10n no autotags</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_27" id="trigger_27" checked="True"/>
+                                                            <label for="trigger_27">Single upgrade</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_96" id="trigger_96" checked="True"/>
+                                                            <label for="trigger_96">Community Test</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_23" id="trigger_23" checked="True"/>
+                                                            <label for="trigger_23">Single module install</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_150" id="trigger_150" checked="True"/>
+                                                            <label for="trigger_150">Single module install skip auto install</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_22" id="trigger_22" checked="True"/>
+                                                            <label for="trigger_22">Single app Test</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_53" id="trigger_53" checked="True"/>
+                                                            <label for="trigger_53">Single L10n</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_66" id="trigger_66" checked="True"/>
+                                                            <label for="trigger_66">Update module list</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_82" id="trigger_82" checked="True"/>
+                                                            <label for="trigger_82">No demo</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_84" id="trigger_84" checked="True"/>
+                                                            <label for="trigger_84">Multi Qunit Community</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_85" id="trigger_85" checked="True"/>
+                                                            <label for="trigger_85">Multi Qunit Enterprise</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_121" id="trigger_121" checked="True"/>
+                                                            <label for="trigger_121">Test docker future</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_123" id="trigger_123" checked="True"/>
+                                                            <label for="trigger_123">With demo</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_130" id="trigger_130" checked="True"/>
+                                                            <label for="trigger_130">Faketime Builds</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_137" id="trigger_137" checked="True"/>
+                                                            <label for="trigger_137">Tour step delay</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_140" id="trigger_140" checked="True"/>
+                                                            <label for="trigger_140">Test no auto-tag</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_159" id="trigger_159" checked="True"/>
+                                                            <label for="trigger_159">Coverage</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_160" id="trigger_160" checked="True"/>
+                                                            <label for="trigger_160">Coverage reports 📊</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_48" id="trigger_48" checked="True"/>
+                                                            <label for="trigger_48">Uninstall</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_50" id="trigger_50" checked="True"/>
+                                                            <label for="trigger_50">Website Standalone</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_49" id="trigger_49" checked="True"/>
+                                                            <label for="trigger_49">External</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_hide" name="trigger_78" id="trigger_78"/>
+                                                            <label for="trigger_78">External l10n</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_75" id="trigger_75" checked="True"/>
+                                                            <label for="trigger_75">Website Nightly</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_13" id="trigger_13" checked="True"/>
+                                                            <label for="trigger_13">templates odoo</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_58" id="trigger_58" checked="True"/>
+                                                            <label for="trigger_58">Click All commmunity</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_57" id="trigger_57" checked="True"/>
+                                                            <label for="trigger_57">Click All enterprise</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_107" id="trigger_107" checked="True"/>
+                                                            <label for="trigger_107">Translations Export Community</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_108" id="trigger_108" checked="True"/>
+                                                            <label for="trigger_108">Translations Export Enterprise</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_145" id="trigger_145" checked="True"/>
+                                                            <label for="trigger_145">Translations Export L10n</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_148" id="trigger_148" checked="True"/>
+                                                            <label for="trigger_148">Translations Export Documentation</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_163" id="trigger_163" checked="True"/>
+                                                            <label for="trigger_163">Translations Export Design-Themes</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_55" id="trigger_55" checked="True"/>
+                                                            <label for="trigger_55">Distro Builds</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_56" id="trigger_56" checked="True"/>
+                                                            <label for="trigger_56">Latest Chrome builds</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_hide" name="trigger_33" id="trigger_33"/>
+                                                            <label for="trigger_33">Docker infos</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_51" id="trigger_51" checked="True"/>
+                                                            <label for="trigger_51">Nightly Test statistics</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_218" id="trigger_218" checked="True"/>
+                                                            <label for="trigger_218">Nightly Test statistics l10n</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_155" id="trigger_155" checked="True"/>
+                                                            <label for="trigger_155">Stats summary 📊</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_131" id="trigger_131" checked="True"/>
+                                                            <label for="trigger_131">Profiling 📊</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_88" id="trigger_88" checked="True"/>
+                                                            <label for="trigger_88">Ruff checks</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_119" id="trigger_119" checked="True"/>
+                                                            <label for="trigger_119">Upgrade nightly l10n</label>
+                                                        </div>
+                                                        <div class="col-md-3 text-nowrap">
+                                                            <input type="checkbox" class="trigger_selection trigger_selection_show" name="trigger_112" id="trigger_112" checked="True"/>
+                                                            <label for="trigger_112">Templates without blacklist nightly</label>
+                                                        </div>
+                                                </div>
+                                    </div>
+                                </div>
+                                <footer class="modal-footer">
+                                    <button onclick="Array.from(document.getElementsByClassName(&#39;trigger_selection_show&#39;)).forEach((element) =&gt; element.checked = true); Array.from(document.getElementsByClassName(&#39;trigger_selection_hide&#39;)).forEach((element) =&gt; element.checked = false); event.preventDefault();" class="btn btn-secondary">Reset to default</button>
+                                    <button onclick="Array.from(document.getElementsByClassName(&#39;trigger_selection&#39;)).forEach((element) =&gt; element.checked = true); event.preventDefault();" class="btn btn-secondary">All</button>
+                                    <button onclick="Array.from(document.getElementsByClassName(&#39;trigger_selection&#39;)).forEach((element) =&gt; element.checked = false); event.preventDefault();" class="btn btn-secondary">None</button>
+                                    <button type="submit" class="btn btn-primary">Save</button>
+                                </footer>
+                            </form>
+                        </div>
+                    </dialog>
+            <template id="build-options-dropdown-menu">
+                <ul class="dropdown-menu dropdown-menu-end" role="menu">
+                    <li t-if="local_state==&#39;running&#39;" t-foreach="databases" t-as="db_suffix">
+                        <a class="dropdown-item" href="/runbot/run/{{id}}/{{db_suffix}}">
+                            <i class="fa fa-fw fa-sign-in"></i> Connect {{db_suffix}}
+                        </a>
+                    </li>
+                    <li t-if="local_state==&#39;running&#39;">
+                        <a class="dropdown-item" href="http://{{domain}}/web/database/selector">
+                            <i class="fa fa-fw fa-sign-in"></i> Database selector
+                        </a>
+                    </li>
+                    <li t-if="host and log_list"><hr class="dropdown-divider"/></li>
+                    <li t-if="host" t-foreach="log_list" t-as="log_name">
+                        <a class="dropdown-item" href="http://{{host}}/runbot/static/build/{{dest}}/logs/{{log_name}}.txt">
+                            <i class="fa fa-fw fa-file-text-o"></i> Full {{log_name}} logs
+                        </a>
+                    </li>
+   <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="http://mail.{{host}}" target="new">
+        <i class="fa fa-envelope"></i>
+        Mailhog
+    </a>
+                </ul>
+            </template>
+                    
+        <div class="container-fluid frontend">
+          <div class="row">
+            <div class="col-md-12">
+              <span class="float-end">
+            <a href="/runbot/load_info" class="slots_infos">
+                <span class="badge text-bg-danger">
+                    Pending:
+                    112<span title="Assigned build (reserved host)">(25)</span>
+                </span>
+                
+                <span class="badge text-bg-warning">
+                    Testing:
+                    1841
+                    /
+                    1888
+                </span>
+            </a>
+              </span>
+            </div>
+            <div class="col-md-12">
+              <div>
+                <div class="row bundle_row">
+                  <div class="col-md-3 col-lg-2 cell">
+                    <div class="text-truncate">
+                      <a href="/runbot/bundle/508663" title="View Bundle master-oi-custom-backend-jula">
+                        <b>master-oi-custom-backend-jula</b>
+                      </a>
+                    </div>
+                    <div class="btn-toolbar gap-1" role="toolbar" aria-label="Toolbar with button groups">
+                      
+                      <div class="btn-group d-empty-none" role="group"></div>
+                      <div class="btn-group" role="group">
+            <button type="button" title="Copy Bundle name" aria-label="Copy Bundle name" class="btn btn-default btn-ssm" data-copy-text="master-oi-custom-backend-jula">
+              <i class="fa fa-clipboard"></i>
+            </button>
+                        <div class="btn-group" role="group">
+          <button data-bs-toggle="dropdown" title="Github links" aria-label="Github links" aria-expanded="false" class="btn btn-default btn-ssm dropdown-toggle">
+            <i class="fa fa-github text-primary"></i>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li>
+              <a class="dropdown-item" href="https://github.com/odoo-dev/odoo/tree/master-oi-custom-backend-jula" title="View Branch master-oi-custom-backend-jula on Github">
+                <span class="fst-italic text-muted">odoo-dev/odoo</span> <span class="">master-oi-custom-backend-jula</span> 
+              </a>
+            </li><li>
+              <a class="dropdown-item" href="https://github.com/odoo/odoo/pull/286248" title="View PR 286248 on Github">
+                <span class="fst-italic text-muted">odoo/odoo</span> <span class="">286248</span> 
+              </a>
+            </li><li>
+              <a class="dropdown-item" href="https://github.com/odoo-dev/enterprise/tree/master-oi-custom-backend-jula" title="View Branch master-oi-custom-backend-jula on Github">
+                <span class="fst-italic text-muted">odoo-dev/enterprise</span> <span class="">master-oi-custom-backend-jula</span> 
+              </a>
+            </li><li>
+              <a class="dropdown-item" href="https://github.com/odoo/enterprise/pull/130652" title="View PR 130652 on Github">
+                <span class="fst-italic text-muted">odoo/enterprise</span> <span class="">130652</span> 
+              </a>
+            </li><li>
+              <a class="dropdown-item" href="https://github.com/odoo-dev/design-themes/tree/master-oi-custom-backend-jula" title="View Branch master-oi-custom-backend-jula on Github">
+                <span class="fst-italic text-muted">odoo-dev/design-themes</span> <span class="">master-oi-custom-backend-jula</span> 
+              </a>
+            </li><li>
+              <a class="dropdown-item" href="https://github.com/odoo/design-themes/pull/1343" title="View PR 1343 on Github">
+                <span class="fst-italic text-muted">odoo/design-themes</span> <span class="">1343</span> 
+              </a>
+            </li>
+          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-9 col-lg-10">
+                    <div class="row gx-0">
+                      <div class="col-md-6 col-xl-3 ">
+
+      <div class="batch_tile">
+        <div class="card bg-info-subtle">
+          <a href="/runbot/batch/2754637" title="2026-09-09 11:22:43">
+            <div class="batch_header">
+              <span class="badge text-bg-default">
+                5 minutes ago
+              </span>
+              <span class="float-end header_hover">View batch...</span>
+            </div>
+          </a>
+          <div class="batch_slots">
+                  <div class="slot_container">
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-info disabled">
+                    <i class="fa fa-spinner fa-spin fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754637/build/124592202" class="btn btn-default slot_name">
+                    
+                    <span>Community Run</span>
+                </a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-info" data-id="124592202" data-global_result="ok" data-global_state="testing" data-local_state="testing" data-databases="[&#34;all&#34;]" data-domain="124592202-master.runbot286.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124592202-master" data-config_id="382" data-trigger_id="1" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[&#34;install_run&#34;]" data-host="runbot286.odoo.com" data-commit_link_ids="17259237">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>  
+                  </div>
+                  <div class="slot_container">
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-info disabled">
+                    <i class="fa fa-spinner fa-spin fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754637/build/124592203" class="btn btn-default slot_name">
+                    
+                    <span>Enterprise Run</span>
+                </a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-info" data-id="124592203" data-global_result="ok" data-global_state="testing" data-local_state="testing" data-databases="[&#34;all&#34;]" data-domain="124592203-master.runbot318.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124592203-master" data-config_id="382" data-trigger_id="122" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[&#34;install_run&#34;]" data-host="runbot318.odoo.com" data-commit_link_ids="17259237,17259256">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>  
+                  </div>
+                  <div class="slot_container">
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-info disabled">
+                    <i class="fa fa-spinner fa-spin fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754637/build/124592205" class="btn btn-default slot_name">
+                    
+                    <span>Design-themes</span>
+                </a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-info" data-id="124592205" data-global_result="ok" data-global_state="testing" data-local_state="testing" data-databases="[&#34;design-theme&#34;]" data-domain="124592205-master.runbot220.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124592205-master" data-config_id="120" data-trigger_id="2" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[&#34;design-theme&#34;]" data-host="runbot220.odoo.com" data-commit_link_ids="17259237,17259256,17259257">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>  
+                  </div>
+                  <div class="slot_container">
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-warning disabled">
+                    <i class="fa fa-exclamation-triangle fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754637/build/124592211" class="btn btn-default slot_name">
+                    
+                    <span>Code Owner</span>
+                </a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124592211" data-global_result="warn" data-global_state="done" data-local_state="done" data-databases="[]" data-domain="124592211-master.runbot223.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124592211-master" data-config_id="282" data-trigger_id="40" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[]" data-host="runbot223.odoo.com" data-commit_link_ids="17259237,17259256,17259259">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>  
+                  </div>
+          </div>
+        </div>
+      </div>
+                      </div><div class="col-md-6 col-xl-3 ">
+
+      <div class="batch_tile">
+        <div class="card bg-danger-subtle">
+          <a href="/runbot/batch/2754387" title="2026-09-09 09:52:09">
+            <div class="batch_header">
+              <span class="badge text-bg-default">
+                96 minutes ago
+              </span>
+              <span class="float-end header_hover">View batch...</span>
+            </div>
+          </a>
+          <div class="batch_slots">
+                  <div class="slot_container">
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-success disabled">
+                    <i class="fa fa-check fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754387/build/124585549" class="btn btn-default slot_name">
+                    
+                    <span>Community Run</span>
+                </a>
+                <a class="fa fa-sign-in btn btn-info" href="/runbot/run/124585549"></a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124585549" data-global_result="ok" data-global_state="running" data-local_state="running" data-databases="[&#34;all&#34;, &#34;base&#34;]" data-domain="124585549-master.runbot321.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124585549-master" data-config_id="382" data-trigger_id="1" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[&#34;install_run&#34;, &#34;install_base&#34;, &#34;pre_run_config&#34;, &#34;run&#34;]" data-host="runbot321.odoo.com" data-commit_link_ids="17257789">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>  
+                  </div>
+                  <div class="slot_container">
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-success disabled">
+                    <i class="fa fa-check fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754387/build/124585550" class="btn btn-default slot_name">
+                    
+                    <span>Enterprise Run</span>
+                </a>
+                <a class="fa fa-sign-in btn btn-info" href="/runbot/run/124585550"></a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124585550" data-global_result="ok" data-global_state="running" data-local_state="running" data-databases="[&#34;all&#34;, &#34;base&#34;]" data-domain="124585550-master.runbot299.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124585550-master" data-config_id="382" data-trigger_id="122" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[&#34;install_run&#34;, &#34;install_base&#34;, &#34;pre_run_config&#34;, &#34;run&#34;]" data-host="runbot299.odoo.com" data-commit_link_ids="17257789,17257838">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>  
+                  </div>
+                  <div class="slot_container">
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-success disabled">
+                    <i class="fa fa-check fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754387/build/124585552" class="btn btn-default slot_name">
+                    
+                    <span>Design-themes</span>
+                </a>
+                <a class="fa fa-sign-in btn btn-info" href="/runbot/run/124585552"></a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124585552" data-global_result="ok" data-global_state="running" data-local_state="running" data-databases="[&#34;design-theme&#34;]" data-domain="124585552-master.runbot238.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124585552-master" data-config_id="120" data-trigger_id="2" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[&#34;design-theme&#34;, &#34;pre_run_config&#34;, &#34;run&#34;]" data-host="runbot238.odoo.com" data-commit_link_ids="17257789,17257838,17257839">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>  
+                  </div>
+                  <div class="slot_container">
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-warning disabled">
+                    <i class="fa fa-exclamation-triangle fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754387/build/124585558" class="btn btn-default slot_name">
+                    
+                    <span>Code Owner</span>
+                </a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124585558" data-global_result="warn" data-global_state="done" data-local_state="done" data-databases="[]" data-domain="124585558-master.runbot311.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124585558-master" data-config_id="282" data-trigger_id="40" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[]" data-host="runbot311.odoo.com" data-commit_link_ids="17257789,17257838,17257841">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>  
+                  </div>
+          </div>
+        </div>
+      </div>
+                      </div><div class="col-md-6 col-xl-3 d-none d-xl-block">
+
+      <div class="batch_tile">
+        <div class="card bg-killed-subtle">
+          <a href="/runbot/batch/2754327" title="2026-09-09 09:38:05">
+            <div class="batch_header">
+              <span class="badge text-bg-default">
+                110 minutes ago
+              </span>
+              <span class="float-end header_hover">View batch...</span>
+            </div>
+          </a>
+          <div class="batch_slots">
+                  <div class="slot_container">
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-secondary disabled">
+                    <i class="fa fa- fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754327/build/124584173" class="btn btn-default slot_name">
+                    
+                    <span>Odoo LS Check</span>
+                </a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124584173" data-global_result="killed" data-global_state="done" data-local_state="done" data-databases="[]" data-domain="124584173-master.runbot209.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124584173-master" data-config_id="420" data-trigger_id="146" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[&#34;odools_lint_diff&#34;]" data-host="runbot209.odoo.com" data-commit_link_ids="17257424,17257485,17257486">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>  
+                  </div>
+                  <div class="slot_container">
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-secondary disabled">
+                    <i class="fa fa- fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754327/build/124584174" class="btn btn-default slot_name">
+                    
+                    <span>Community Run</span>
+                </a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124584174" data-global_result="killed" data-global_state="done" data-local_state="done" data-databases="[&#34;all&#34;]" data-domain="124584174-master.runbot271.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124584174-master" data-config_id="382" data-trigger_id="1" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[&#34;install_run&#34;]" data-host="runbot271.odoo.com" data-commit_link_ids="17257424">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>  
+                  </div>
+                  <div class="slot_container">
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-secondary disabled">
+                    <i class="fa fa- fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754327/build/124584175" class="btn btn-default slot_name">
+                    
+                    <span>Enterprise Run</span>
+                </a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124584175" data-global_result="killed" data-global_state="done" data-local_state="done" data-databases="[&#34;all&#34;]" data-domain="124584175-master.runbot331.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124584175-master" data-config_id="382" data-trigger_id="122" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[&#34;install_run&#34;]" data-host="runbot331.odoo.com" data-commit_link_ids="17257424,17257485">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>  
+                  </div>
+                  <div class="slot_container">
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-secondary disabled">
+                    <i class="fa fa- fa-fw"></i>
+                </span>
+                <a class="badge btn btn-info" href="/runbot/bundle/508663">Light</a>
+                <a href="/runbot/batch/2754327/build/124584176" class="btn btn-default slot_name">
+                    
+                    <span>Enterprise Tests</span>
+                </a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124584176" data-global_result="killed" data-global_state="done" data-local_state="done" data-databases="[&#34;all&#34;]" data-domain="124584176-master.runbot326.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124584176-master" data-config_id="438" data-trigger_id="3" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[&#34;install_all&#34;]" data-host="runbot326.odoo.com" data-commit_link_ids="17257424,17257485">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>  
+                  </div>
+                  <div class="slot_container">
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-secondary disabled">
+                    <i class="fa fa- fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754327/build/124584163" class="btn btn-default slot_name">
+                    
+                    <span>Design-themes</span>
+                </a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124584163" data-global_result="killed" data-global_state="done" data-local_state="done" data-databases="[&#34;design-theme&#34;]" data-domain="124584163-master.runbot314.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124584163-master" data-config_id="120" data-trigger_id="2" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[&#34;design-theme&#34;]" data-host="runbot314.odoo.com" data-commit_link_ids="17257424,17257485,17257486">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>  
+                  </div>
+                  <div class="slot_container">
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-secondary disabled">
+                    <i class="fa fa- fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754327/build/124584177" class="btn btn-default slot_name">
+                    
+                    <span>Templates enterprise</span>
+                </a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124584177" data-global_result="killed" data-global_state="done" data-local_state="done" data-databases="[&#34;no-demo-all&#34;]" data-domain="124584177-master.runbot286.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124584177-master" data-config_id="178" data-trigger_id="11" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[&#34;install_upgrade_template&#34;]" data-host="runbot286.odoo.com" data-commit_link_ids="17257424,17257485">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>  
+                  </div>
+                  <div class="slot_container">
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-danger disabled">
+                    <i class="fa fa-times fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754327/build/124584226" class="btn btn-default slot_name">
+                    
+                    <span>Upgrade current</span>
+                </a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124584226" data-global_result="ko" data-global_state="done" data-local_state="done" data-databases="[]" data-domain="124584226-master.runbot211.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124584226-master" data-config_id="184" data-trigger_id="12" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[]" data-host="runbot211.odoo.com" data-commit_link_ids="17257424,17257485,17257487,17257489">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>  
+                  </div>
+                  <div class="slot_container">
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-warning disabled">
+                    <i class="fa fa-exclamation-triangle fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754327/build/124584182" class="btn btn-default slot_name">
+                    
+                    <span>Code Owner</span>
+                </a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124584182" data-global_result="warn" data-global_state="done" data-local_state="done" data-databases="[]" data-domain="124584182-master.runbot158.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124584182-master" data-config_id="282" data-trigger_id="40" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[]" data-host="runbot158.odoo.com" data-commit_link_ids="17257424,17257485,17257488">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>  
+                  </div>
+          </div>
+        </div>
+      </div>
+                      </div><div class="col-md-6 col-xl-3 d-none d-xl-block">
+
+      <div class="batch_tile">
+        <div class="card bg-killed-subtle">
+          <a href="/runbot/batch/2754298" title="2026-09-09 09:30:08">
+            <div class="batch_header">
+              <span class="badge text-bg-default">
+                118 minutes ago
+              </span>
+              <span class="float-end header_hover">View batch...</span>
+            </div>
+          </a>
+          <div class="batch_slots">
+                  <div class="slot_container">
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-secondary disabled">
+                    <i class="fa fa-ban fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754298/build/124583644" class="btn btn-default slot_name">
+                    
+                    <span>Odoo LS Check</span>
+                </a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124583644" data-global_result="skipped" data-global_state="done" data-local_state="done" data-databases="[]" data-domain="124583644-master.False" data-to_kill="false" data-requested_action="" data-dest="124583644-master" data-config_id="420" data-trigger_id="146" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[]" data-host="" data-commit_link_ids="17257265,17257321,17257322">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>  
+                  </div>
+                  <div class="slot_container">
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-secondary disabled">
+                    <i class="fa fa-ban fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754298/build/124583645" class="btn btn-default slot_name">
+                    
+                    <span>Community Run</span>
+                </a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124583645" data-global_result="skipped" data-global_state="done" data-local_state="done" data-databases="[]" data-domain="124583645-master.False" data-to_kill="false" data-requested_action="" data-dest="124583645-master" data-config_id="382" data-trigger_id="1" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[]" data-host="" data-commit_link_ids="17257265">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>  
+                  </div>
+                  <div class="slot_container">
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-secondary disabled">
+                    <i class="fa fa-ban fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754298/build/124583646" class="btn btn-default slot_name">
+                    
+                    <span>Enterprise Run</span>
+                </a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124583646" data-global_result="skipped" data-global_state="done" data-local_state="done" data-databases="[]" data-domain="124583646-master.False" data-to_kill="false" data-requested_action="" data-dest="124583646-master" data-config_id="382" data-trigger_id="122" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[]" data-host="" data-commit_link_ids="17257265,17257321">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>  
+                  </div>
+                  <div class="slot_container">
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-secondary disabled">
+                    <i class="fa fa-ban fa-fw"></i>
+                </span>
+                <a class="badge btn btn-info" href="/runbot/bundle/508663">Light</a>
+                <a href="/runbot/batch/2754298/build/124583647" class="btn btn-default slot_name">
+                    
+                    <span>Enterprise Tests</span>
+                </a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124583647" data-global_result="skipped" data-global_state="done" data-local_state="done" data-databases="[]" data-domain="124583647-master.False" data-to_kill="false" data-requested_action="" data-dest="124583647-master" data-config_id="438" data-trigger_id="3" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[]" data-host="" data-commit_link_ids="17257265,17257321">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>  
+                  </div>
+                  <div class="slot_container">
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-secondary disabled">
+                    <i class="fa fa-ban fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754298/build/124583640" class="btn btn-default slot_name">
+                    
+                    <span>Design-themes</span>
+                </a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124583640" data-global_result="skipped" data-global_state="done" data-local_state="done" data-databases="[]" data-domain="124583640-master.False" data-to_kill="false" data-requested_action="" data-dest="124583640-master" data-config_id="120" data-trigger_id="2" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[]" data-host="" data-commit_link_ids="17257265,17257321,17257322">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>  
+                  </div>
+                  <div class="slot_container">
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-secondary disabled">
+                    <i class="fa fa-ban fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754298/build/124583648" class="btn btn-default slot_name">
+                    
+                    <span>Templates enterprise</span>
+                </a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124583648" data-global_result="skipped" data-global_state="done" data-local_state="done" data-databases="[]" data-domain="124583648-master.False" data-to_kill="false" data-requested_action="" data-dest="124583648-master" data-config_id="178" data-trigger_id="11" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[]" data-host="" data-commit_link_ids="17257265,17257321">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>  
+                  </div>
+                  <div class="slot_container">
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-danger disabled">
+                    <i class="fa fa-times fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754298/build/124583657" class="btn btn-default slot_name">
+                    
+                    <span>Upgrade current</span>
+                </a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124583657" data-global_result="ko" data-global_state="done" data-local_state="done" data-databases="[]" data-domain="124583657-master.runbot239.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124583657-master" data-config_id="184" data-trigger_id="12" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[]" data-host="runbot239.odoo.com" data-commit_link_ids="17257265,17257321,17257323,17257325">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>  
+                  </div>
+                  <div class="slot_container">
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-secondary disabled">
+                    <i class="fa fa-ban fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754298/build/124583649" class="btn btn-default slot_name">
+                    
+                    <span>Distro check</span>
+                </a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124583649" data-global_result="skipped" data-global_state="done" data-local_state="done" data-databases="[]" data-domain="124583649-master.False" data-to_kill="false" data-requested_action="" data-dest="124583649-master" data-config_id="372" data-trigger_id="87" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[]" data-host="" data-commit_link_ids="17257265,17257321,17257322">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>  
+                  </div>
+                  <div class="slot_container">
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-secondary disabled">
+                    <i class="fa fa-ban fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754298/build/124583650" class="btn btn-default slot_name">
+                    
+                    <span>Check Style</span>
+                </a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124583650" data-global_result="skipped" data-global_state="done" data-local_state="done" data-databases="[]" data-domain="124583650-master.False" data-to_kill="false" data-requested_action="" data-dest="124583650-master" data-config_id="209" data-trigger_id="25" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[]" data-host="" data-commit_link_ids="17257265,17257321">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>  
+                  </div>
+                  <div class="slot_container">
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-secondary disabled">
+                    <i class="fa fa-ban fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754298/build/124583651" class="btn btn-default slot_name">
+                    
+                    <span>Check Security odoo</span>
+                </a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124583651" data-global_result="skipped" data-global_state="done" data-local_state="done" data-databases="[]" data-domain="124583651-master.False" data-to_kill="false" data-requested_action="" data-dest="124583651-master" data-config_id="212" data-trigger_id="26" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[]" data-host="" data-commit_link_ids="17257265">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>  
+                  </div>
+                  <div class="slot_container">
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-secondary disabled">
+                    <i class="fa fa-ban fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754298/build/124583652" class="btn btn-default slot_name">
+                    
+                    <span>Check Security enterprise</span>
+                </a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124583652" data-global_result="skipped" data-global_state="done" data-local_state="done" data-databases="[]" data-domain="124583652-master.False" data-to_kill="false" data-requested_action="" data-dest="124583652-master" data-config_id="212" data-trigger_id="30" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[]" data-host="" data-commit_link_ids="17257321">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>  
+                  </div>
+                  <div class="slot_container">
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-secondary disabled">
+                    <i class="fa fa-ban fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754298/build/124583653" class="btn btn-default slot_name">
+                    
+                    <span>Code Owner</span>
+                </a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124583653" data-global_result="skipped" data-global_state="done" data-local_state="done" data-databases="[]" data-domain="124583653-master.False" data-to_kill="false" data-requested_action="" data-dest="124583653-master" data-config_id="282" data-trigger_id="40" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[]" data-host="" data-commit_link_ids="17257265,17257321,17257324">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>  
+                  </div>
+                  <div class="slot_container">
+            <div class="btn-group btn-group-ssm slot_button_group slot_link_created">
+                <span class="btn btn-secondary disabled">
+                    <i class="fa fa-ban fa-fw"></i>
+                </span>
+                <a href="/runbot/batch/2754298/build/124583517" class="btn btn-default slot_name">
+                    
+                    <span>CLA</span>
+                </a>
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124583517" data-global_result="skipped" data-global_state="done" data-local_state="done" data-databases="[]" data-domain="124583517-master.False" data-to_kill="false" data-requested_action="" data-dest="124583517-master" data-config_id="153" data-trigger_id="8" data-version_id="1" data-bundle_id="508663" data-description="" data-log_list="[]" data-host="" data-commit_link_ids="17257265,17257321">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+            </div>  
+                  </div>
+          </div>
+        </div>
+      </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+                </body>
+            </html>

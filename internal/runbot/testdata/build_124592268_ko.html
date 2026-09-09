@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+            <html data-bs-theme="legacy">
+                <head>
+                    <meta charset="utf-8"/>
+                    <title>Build 124592268</title>
+
+                    <link type="text/css" rel="stylesheet" href="/web/assets/1/54435b1/runbot.assets_frontend.min.css"/>
+                    <script type="text/javascript" defer="defer" src="/web/assets/1/873b2fa/runbot.assets_frontend.min.js" onerror="__odooAssetError=1"></script>
+
+
+                        <link rel="icon" type="image/png" href="/runbot/static/src/img/icon_ko.png"/>
+                        <link rel="icon" type="image/svg+xml" href="/runbot/static/src/img/icon_ko.svg"/>
+                </head>
+                <body>
+                    <header>
+                        <nav class="navbar navbar-expand-md bg-body-tertiary">
+                            <a href="/runbot/rd-1">
+                                <b class="active_project">
+                                    R&amp;D
+                                </b>
+                            </a>
+                            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#top_menu_collapse">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="top_menu_collapse">
+                                <ul class="nav navbar-nav ms-auto text-end" id="top_menu">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="/runbot/rd-1">
+                                                    R&amp;D
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="/runbot/industry-9">
+                                                    Industry
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="/runbot/tutorials-12">
+                                                    Tutorials
+                                                </a>
+                                            </li>
+                                    <li class="nav-item">
+                                        <button command="show-modal" commandfor="collapsePreference" type="button" class="nav-link">
+                                            <i class="fa fa-gear"></i>
+                                        </button>
+                                    </li>
+                                        <li class="nav-item dropdown">
+                                            <b>
+                                                <a class="nav-link" href="/web/login?redirect=/runbot/build/124592268">Login</a>
+                                            </b>
+                                        </li>
+                                </ul>
+                                
+          <form>
+            <div class="btn-group">
+            <div class="float-end">
+                <div class="btn-group ">
+                    <a class="btn btn-default" title="Build details" aria-label="Build details" href="/runbot/build/124592268">
+                        <i class="fa fa-file-text-o"></i>
+                    </a>
+                    
+            <build-options-dropdown title="Build options" aria-label="Build options" class="btn btn-default" data-id="124592268" data-global_result="ko" data-global_state="done" data-local_state="done" data-databases="[]" data-domain="124592268-master.runbot317.odoo.com" data-to_kill="false" data-requested_action="" data-dest="124592268-master" data-config_id="212" data-trigger_id="26" data-version_id="1" data-bundle_id="488660" data-description="" data-log_list="[&#34;check_semgrep_security&#34;]" data-host="runbot317.odoo.com" data-commit_link_ids="17259280">
+                <i class="fa fa-cog fa-fw"></i>
+            </build-options-dropdown>
+                </div>
+            </div>
+            </div>
+          </form>
+        
+                            </div>
+                        </nav>
+                    </header>
+                    <dialog id="collapsePreference" class="modal modal-xl">
+                        <div class="modal-dialog">
+                            <form class="modal-content" method="post" action="/runbot/submit" id="preferences_form">
+                                <header class="modal-header">
+                                    <h5 class="modal-title">Preferences</h5>
+                                    <button type="button" class="btn-close" command="close" commandfor="collapsePreference"></button>
+                                </header>
+                                <div class="modal-body">
+                                    <input type="hidden" name="redirect" value="/runbot/build/124592268?"/>
+                                    <div>
+                                        <div class="form-check form-switch">
+                                        <label for="more" class="form-check-label">More info</label>
+                                        <input onclick="document.getElementById(&#39;preferences_form&#39;).submit()" class="form-check-input" type="checkbox" role="switch" id="more" name="more"/>
+                                    </div></div>
+                                    <div>
+                                        <label for="theme_selection" style="min-width: 80px">Theme:</label>
+                                        <div id="theme_selection" class="text-nowrap btn-group btn-group-sm" role="group">
+                                        <button onclick="document.cookie = &#39;theme=legacy; expires=Thu, 1 Dec 2942 12:00:00 UTC; path=/&#39;; location.reload();" type="button" class="btn btn-primary">Legacy</button>
+                                        <button onclick="document.cookie = &#39;theme=dark; expires=Thu, 1 Dec 2942 12:00:00 UTC; path=/&#39;; location.reload();" type="button" class="btn btn-secondary">Dark</button>
+                                        <button onclick="document.cookie = &#39;theme=light; expires=Thu, 1 Dec 2942 12:00:00 UTC; path=/&#39;; location.reload();" type="button" class="btn btn-secondary">Light</button>
+                                        <button onclick="document.cookie = &#39;theme=red404; expires=Thu, 1 Dec 2942 12:00:00 UTC; path=/&#39;; location.reload();" type="button" class="btn btn-secondary">Red404</button>
+                                    </div></div>
+                                    <div>
+                                        <label for="theme_selection" style="min-width: 80px">Sticky:</label>
+                                        <div class="text-nowrap btn-group btn-group-sm" role="group">
+                                        <button onclick="document.cookie = &#39;filter_mode=default; expires=Thu, 1 Dec 2942 12:00:00 UTC; path=/&#39;; location.reload();" type="button" help="Only display sticky except if searching" class="btn btn-primary">Default</button>
+                                        <button onclick="document.cookie = &#39;filter_mode=all; expires=Thu, 1 Dec 2942 12:00:00 UTC; path=/&#39;; location.reload();" type="button" class="btn btn-secondary">All</button>
+                                        <button onclick="document.cookie = &#39;filter_mode=sticky; expires=Thu, 1 Dec 2942 12:00:00 UTC; path=/&#39;; location.reload();" type="button" class="btn btn-secondary">Sticky only</button>
+                                        <button onclick="document.cookie = &#39;filter_mode=nosticky; expires=Thu, 1 Dec 2942 12:00:00 UTC; path=/&#39;; location.reload();" type="button" class="btn btn-secondary">Dev only</button>
+                                    </div></div>
+                                    <div>
+                                        <label for="theme_selection" style="min-width: 80px">Category:</label>
+                                        <div class="text-nowrap btn-group btn-group-sm" role="group">
+                                    </div></div>
+
+                                    <hr class="separator"/>
+                                </div>
+                                <footer class="modal-footer">
+                                    <button onclick="Array.from(document.getElementsByClassName(&#39;trigger_selection_show&#39;)).forEach((element) =&gt; element.checked = true); Array.from(document.getElementsByClassName(&#39;trigger_selection_hide&#39;)).forEach((element) =&gt; element.checked = false); event.preventDefault();" class="btn btn-secondary">Reset to default</button>
+                                    <button onclick="Array.from(document.getElementsByClassName(&#39;trigger_selection&#39;)).forEach((element) =&gt; element.checked = true); event.preventDefault();" class="btn btn-secondary">All</button>
+                                    <button onclick="Array.from(document.getElementsByClassName(&#39;trigger_selection&#39;)).forEach((element) =&gt; element.checked = false); event.preventDefault();" class="btn btn-secondary">None</button>
+                                    <button type="submit" class="btn btn-primary">Save</button>
+                                </footer>
+                            </form>
+                        </div>
+                    </dialog>
+            <template id="build-options-dropdown-menu">
+                <ul class="dropdown-menu dropdown-menu-end" role="menu">
+                    <li t-if="local_state==&#39;running&#39;" t-foreach="databases" t-as="db_suffix">
+                        <a class="dropdown-item" href="/runbot/run/{{id}}/{{db_suffix}}">
+                            <i class="fa fa-fw fa-sign-in"></i> Connect {{db_suffix}}
+                        </a>
+                    </li>
+                    <li t-if="local_state==&#39;running&#39;">
+                        <a class="dropdown-item" href="http://{{domain}}/web/database/selector">
+                            <i class="fa fa-fw fa-sign-in"></i> Database selector
+                        </a>
+                    </li>
+                    <li t-if="host and log_list"><hr class="dropdown-divider"/></li>
+                    <li t-if="host" t-foreach="log_list" t-as="log_name">
+                        <a class="dropdown-item" href="http://{{host}}/runbot/static/build/{{dest}}/logs/{{log_name}}.txt">
+                            <i class="fa fa-fw fa-file-text-o"></i> Full {{log_name}} logs
+                        </a>
+                    </li>
+   <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="http://mail.{{host}}" target="new">
+        <i class="fa fa-envelope"></i>
+        Mailhog
+    </a>
+                </ul>
+            </template>
+                    
+        <div class="row g-0">
+          <div class="col-md-12">
+
+
+            
+            <nav aria-label="breadcrumb" class="d-flex justify-content-between align-items-center">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a class="btn btn-link" href="/runbot/1">
+                    R&amp;D
+                  </a>
+                </li>
+                <li class="breadcrumb-item dropdown">
+                  <a class="btn btn-link" href="/runbot/bundle/488660">
+                    master-mass_mailing-imp-add-mailing-templates-hahas
+                  </a>
+                </li>
+                <li class="breadcrumb-item">
+                  <a class="btn btn-link" href="/runbot/batch/2754643">
+                    batch-2754643
+                     (Check Security odoo)
+                  </a>
+                </li>
+                <li class="breadcrumb-item active">
+                  <a class="btn btn-link" href="/runbot/batch/2754643/build/124592268">
+                    Check Security
+                  </a>
+                </li>
+              </ol>
+              <span class="btn-group pe-3">
+                <a role="button" title="Previous ko " class="disabled btn btn-default fa fa-angle-double-left"></a>
+                <a role="button" title="Previous " class="disabled btn btn-default fa fa-chevron-left"></a>
+                <button type="button" class="btn btn-default fa fa-compress" data-toggle="hide-success" title="Toggle successful rows" aria-label="Toggle successful rows" aria-expanded="true"></button>
+                <a role="button" title="Next " class="disabled btn btn-default fa fa-chevron-right"></a>
+                <a role="button" title="Next ko " class="disabled btn btn-default fa fa-angle-double-right"></a>
+              </span>
+            </nav>
+          </div>
+          
+          <div class="bg-danger-subtle col-md-12">
+            <div class="build_details text-truncate">
+              
+              
+
+
+              
+                <b>Commit:</b>
+                <a href="/runbot/commit/2914183">
+                  odoo:c9a3120b
+                </a>
+                &nbsp;
+                <a title="View Commit on Github" href="https://github.com/odoo/odoo/commit/c9a3120b992bf5abf7426a6d077d18bdc45ff85b"><i class="fa fa-github"></i></a>
+                <div class="ms-3">
+                  <b>Subject:</b>
+                  [FIX] mass_mailing: fix additional lines between section in the preview
+                  <br/>
+                  <b>Author:</b>
+                  Haroune Hassine (Hahas)
+                  <br/>
+                </div>
+              <div>
+                <b title="Execution time of this build, without child time">
+                  Build time:
+                </b>
+                73s
+              </div>
+              <div>
+                <b title="Time from creation to finish (queue time + completion time)">
+                  Wait time:
+                </b>
+                2m
+              </div>
+              <div>
+                <b title="Total time ">
+                  Load time:
+                </b>
+                1m13s
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <table class="table table-sm">
+              <tr>
+                <th>Date (UTC)</th>
+                <th>Level</th>
+                <th>Message</th>
+              </tr>
+                <tr class="log-runbot" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 11:27:04</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;"><b>INFO</b>
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg--subtle"><span>Init build environment with config Check Security </span>
+                  </td>
+                  <td class="bg--subtle">
+                  </td>
+                </tr>
+                <tr class="separator" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 11:27:04</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;">
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg-separator-subtle"><span>Starting step <strong>check_security</strong> from config <strong>Check Security</strong></span>
+                  </td>
+                  <td class="bg-separator-subtle">
+                  </td>
+                </tr>
+                <tr class="log-runbot" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 11:27:18</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;"><b>INFO</b>
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg--subtle"><span>Step check_security finished in 15s</span>
+                  </td>
+                  <td class="bg--subtle">
+                  </td>
+                </tr>
+                <tr class="separator" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 11:27:18</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;">
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg-separator-subtle"><span>Starting step <strong>check_semgrep_security</strong> from config <strong>Check Security</strong>  <a href="http://runbot317.odoo.com/runbot/static/build/124592268-master/logs/check_semgrep_security.txt"><i class="fa fa-file-text"></i></a></span>
+                  </td>
+                  <td class="bg-separator-subtle">
+                  </td>
+                </tr>
+                <tr class="log-runbot" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 11:27:18</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;"><b>INFO</b>
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg--subtle"><span>checking 640 lines in 18 files</span>
+                  </td>
+                  <td class="bg--subtle">
+                  </td>
+                </tr>
+                <tr class="log-markdown" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 11:27:18</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;">
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg--subtle"><span>Using Dockerfile Tag <a href="/runbot/dockerfile_result/odoo:SemGrep/2a3b41d76c87bd2fa4539c98c463fab431306b6c41e236245495ca994a630822">odoo:SemGrep</a></span>
+                  </td>
+                  <td class="bg--subtle">
+                  </td>
+                </tr>
+                <tr class="log-markdown" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 11:28:10</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;">
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg-danger-subtle"><span>        <a href="https://github.com/odoo/odoo/blob/c9a3120b992bf5abf7426a6d077d18bdc45ff85b/addons/mass_mailing/static/src/themes/theme_selector/theme_selector_iframe.js#L86-L86">addons/mass_mailing/static/src/themes/theme_selector/theme_selector_iframe.js:86</a><br/>
+        <a href="https://github.com/odoo/enterprise/wiki/security#JS004">JS004 🔗</a>: <code>markup(template.body_arch)</code><br/>
+            </span>
+                  </td>
+                  <td class="bg-danger-subtle">
+                      <small>
+                      </small>
+                  </td>
+                </tr>
+                <tr class="log-runbot" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 11:28:10</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;"><b>INFO</b>
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg--subtle"><span>Step check_semgrep_security finished in 45s</span>
+                  </td>
+                  <td class="bg--subtle">
+                  </td>
+                </tr>
+                <tr class="separator" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 11:28:10</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;">
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg-separator-subtle"><span>Starting step <strong>check_runbot</strong> from config <strong>Check Security</strong></span>
+                  </td>
+                  <td class="bg-separator-subtle">
+                  </td>
+                </tr>
+                <tr class="log-runbot" title="">
+                  <td style="white-space: nowrap; width:1%;">
+                    <small>2026-09-09 11:28:16</small>
+                  </td>
+                  <td style="white-space: nowrap; width:1%;"><b>INFO</b>
+                  </td>
+                  <td style="max-width: 0; width: 100%;" class="bg--subtle"><span>Step check_runbot finished in 6s</span>
+                  </td>
+                  <td class="bg--subtle">
+                  </td>
+                </tr>
+            </table>
+          </div>
+        </div>
+      
+                </body>
+            </html>
